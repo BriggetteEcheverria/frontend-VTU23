@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+    font-family: 'Lato', sans-serif;
+}
+
+
+#unisAirline {
+overflow-y: scroll;
+height:800px;
+background-image: url("images/fondoUnisAirline.png");
+background-size: cover;
+}
