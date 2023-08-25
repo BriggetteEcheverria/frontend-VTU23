@@ -8,7 +8,7 @@ const MenuLogros = () => {
             <div className='flex h-[10vh] p-1'>
                 <img src={logo} />
             </div>
-            {/* lg:px-96 */}
+            {/* Menu de todos las marcas para ingresar a los logros */}
             <div className='justify-center text-center flex flex-col lg:px-80'>
                 <Link to={'/buscar-logros'} className='bg-[#02275e] m-5 py-10 text-white uppercase font-bold rounded hover:cursor-pointer
                     hover:bg-sky-800 transition-colors text-center'>

@@ -4,23 +4,28 @@ import clienteAxios from '../config/clienteAxios'
 import Alerta from '../components/Alerta'
 
 const BuscarAsistente = () => {
-
+    //Informacion clientes
     const [cedula, setCedula] = useState('')
     const [nombre, setNombre] = useState('')
     const [empresa, setEmpresa] = useState('')
     const [id, setId] = useState('')
     const [alerta, setAlerta] = useState('')
+    //Flag para habilitar o deshabilitar boton
     const [isDisabled, setIsDisabled] = useState(true)
+    //Input para buscar cliente
     const [inputBuscador, setInputBuscador] = useState('')
 
+    //Evento de submit para buscar al Cliente form
     const handleSubmitBuscar = async e => {
         e.preventDefault()
-
+        //Verificar que no este vacio el campo
         if ([inputBuscador].includes('')) {
+            //Set alerta de error
             setAlerta({
                 msg: 'Todos los campos son obligatorios',
                 error: true
             })
+            //Set vacio todos los campos y deshabilitar boton
             setCedula('')
             setNombre('')
             setEmpresa('')
@@ -29,24 +34,30 @@ const BuscarAsistente = () => {
         }
 
         try {
+            //Query get para obtener datos del contacto
             const { data } = await clienteAxios(`/usuarios/cedula/${inputBuscador}`)
-            console.log(data);
+            //Set informacion apra mostrar en los campos
             setId(data._id)
             setCedula(data.cedula)
             setNombre(data.nombre)
             setEmpresa(data.empresa)
+            //Habilitar boton para imprimir
             setIsDisabled(false)
+            //Borrar input para buscar
             setInputBuscador('')
+            //Set alerta sin error
             setAlerta({
                 msg: '',
                 error: false
             })
 
         } catch (error) {
+            //Set alerta con Error
             setAlerta({
                 msg: error.response.data.msg,
                 error: true
             })
+            //Set campos en vacio
             setCedula('')
             setNombre('')
             setEmpresa('')
@@ -54,15 +65,18 @@ const BuscarAsistente = () => {
         }
 
     }
-
+    //Evento para mandar a imprir QR
     const handleSubmitImprimir = async e => {
         e.preventDefault()
         try {
+            //Query mandar a imprimir
             const { data } = await clienteAxios.post(`/printers/reciboQR`,{id})
+            //Set alerta 
             setAlerta({
                 msg: 'Imprimiendo...',
                 error: false
             })
+            //Borrar alerta despues de 1200ms
             setTimeout(() => {
                 setAlerta({
                     msg: '',
@@ -70,6 +84,7 @@ const BuscarAsistente = () => {
                 })
               }, 1200);
         } catch (error) {
+            //Mostrar ensaje de error alerta
             setAlerta({
                 msg: error.response.data.msg,
                 error: true
