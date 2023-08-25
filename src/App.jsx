@@ -4,7 +4,12 @@ import CheckIn from "./pages/CheckIn"
 import CrearAsistente from "./pages/crearAsistente"
 import BuscarAsistente from "./pages/BuscarAsistente"
 import Menu from "./pages/Menu"
-import Logros from "./pages/Logros"
+import BuscarTusLogros from "./pages/Logros/BuscarTusLogros"
+import MenuLogros from "./pages/Logros/MenuLogros"
+import MenuLogroMarca from "./pages/Logros/LogrosPorMarca/MenuLogroMarca"
+import ObtenerLogro from "./pages/Logros/LogrosPorMarca/ObtenerLogro"
+
+
 
 function App() {
   return (
@@ -15,7 +20,12 @@ function App() {
         <Route path="check-in" element={<CheckIn/>}/>
         <Route path='crear-asistente' element={<CrearAsistente/>}/>
         <Route path='buscar-asistente' element={<BuscarAsistente/>}/>
-        <Route path='buscar-logros' element={<Logros/>}/>
+        {/* LOGROS ROUTES */}
+        <Route path='menu-logros' element={<MenuLogros/>}/>
+        <Route path='buscar-logros' element={<BuscarTusLogros/>}/>
+        <Route path='menu-conseguir-logros' element={<MenuLogroMarca/>}/>
+        <Route path='obtener-logro' element={<ObtenerLogro/>}/>
+
       </Route>
     </Routes>
     </BrowserRouter>

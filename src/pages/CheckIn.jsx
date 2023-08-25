@@ -13,6 +13,7 @@ const CheckIn = () => {
         e.preventDefault()
 
         if([id].includes('')) {
+            setId('')
             setAlerta({
                 msg: 'Todos los campos son obligatorios',
                 error: true
@@ -22,11 +23,22 @@ const CheckIn = () => {
 
         try {
             const{data} = await clienteAxios(`/usuarios/${id}`)
+            const nombre =data.nombre;
+            const{data2} = await clienteAxios.post(`/printers/imprimirBoleto` , {nombre})
             setAlerta({
                 msg: 'Imprimiendo...',
                 error: false
             })
+            setTimeout(() => {
+                setAlerta({
+                    msg: '',
+                    error: false
+                })
+              }, 1500);
+            
+            setId('')
         } catch (error) {
+            setId('')
             setAlerta({
                 msg: error.response.data.msg,
                 error: true

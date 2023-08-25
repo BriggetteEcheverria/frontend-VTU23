@@ -23,9 +23,9 @@ const Menu = () => {
                     hover:bg-sky-800 transition-colors text-center'>
                     Buscar asistente
                 </Link>
-                <Link to={'/logros'} className='bg-[#02275e] m-5 py-10 text-white uppercase font-bold rounded hover:cursor-pointer
+                <Link to={'/menu-logros'} className='bg-[#02275e] m-5 py-10 text-white uppercase font-bold rounded hover:cursor-pointer
                     hover:bg-sky-800 transition-colors text-center'>
-                    Buscar mis logros
+                    Logros
                 </Link>
             </div>
         </div>

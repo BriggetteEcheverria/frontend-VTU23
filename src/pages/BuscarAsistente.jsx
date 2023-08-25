@@ -11,29 +11,64 @@ const BuscarAsistente = () => {
     const [id, setId] = useState('')
     const [alerta, setAlerta] = useState('')
     const [isDisabled, setIsDisabled] = useState(true)
+    const [inputBuscador, setInputBuscador] = useState('')
 
-    const handleSubmitBuscar = async e =>{
+    const handleSubmitBuscar = async e => {
         e.preventDefault()
 
-        if([id].includes('')) {
+        if ([inputBuscador].includes('')) {
             setAlerta({
                 msg: 'Todos los campos son obligatorios',
                 error: true
             })
+            setCedula('')
+            setNombre('')
+            setEmpresa('')
+            setIsDisabled(true)
             return
-         }
+        }
 
         try {
-            const{data} = await clienteAxios(`/usuarios/${id}`)
+            const { data } = await clienteAxios(`/usuarios/cedula/${inputBuscador}`)
             console.log(data);
-            
+            setId(data._id)
             setCedula(data.cedula)
             setNombre(data.nombre)
             setEmpresa(data.empresa)
             setIsDisabled(false)
+            setInputBuscador('')
+            setAlerta({
+                msg: '',
+                error: false
+            })
 
-            // setId('')
+        } catch (error) {
+            setAlerta({
+                msg: error.response.data.msg,
+                error: true
+            })
+            setCedula('')
+            setNombre('')
+            setEmpresa('')
+            setIsDisabled(true)
+        }
 
+    }
+
+    const handleSubmitImprimir = async e => {
+        e.preventDefault()
+        try {
+            const { data } = await clienteAxios.post(`/printers/reciboQR`,{id})
+            setAlerta({
+                msg: 'Imprimiendo...',
+                error: false
+            })
+            setTimeout(() => {
+                setAlerta({
+                    msg: '',
+                    error: false
+                })
+              }, 1200);
         } catch (error) {
             setAlerta({
                 msg: error.response.data.msg,
@@ -41,22 +76,12 @@ const BuscarAsistente = () => {
             })
         }
 
-    }
-
-    const handleSubmitImprimir = e =>{
-        e.preventDefault()
-        console.log('imprimiendo');
-        setAlerta({
-            msg: 'Imprimiendo',
-            error: false
-        })
-
         setCedula('')
         setNombre('')
         setEmpresa('')
     }
 
-    const {msg} = alerta
+    const { msg } = alerta
 
     return (
         <div id='unisAirline' >
@@ -67,7 +92,7 @@ const BuscarAsistente = () => {
             <div className='h-[90vh] justify-center lg:w-2/3 mx-auto'>
                 <p className='uppercase text-center font-bold text-2xl text-white sm:text-2xl'>Buscar asistente</p>
 
-                {msg && <Alerta alerta={alerta}/>}
+                {msg && <Alerta alerta={alerta} />}
 
                 <form onSubmit={handleSubmitBuscar} action="" className='text-[#02275e] rounded-lg  my-auto  m-2 sm:mx-20 shadow-md flex justify-between'>
                     <input
@@ -76,8 +101,8 @@ const BuscarAsistente = () => {
                         type='text'
                         placeholder='Ingresa la cédula del usuario'
                         className='w-full m-5 p-3 border rounded bg-gray-50 text-[#02275e]'
-                        value={id}
-                        onChange={e=>setId(e.target.value)}
+                        value={inputBuscador}
+                        onChange={e => setInputBuscador(e.target.value)}
                     />
                     <input
                         type='submit'
@@ -116,7 +141,7 @@ const BuscarAsistente = () => {
                                 value={nombre}
                             />
                         </div>
-                        
+
                         <div className='my-2'>
                             <label
                                 className=' text-white block text-xl font-bold'
