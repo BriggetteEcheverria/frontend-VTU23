@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import Alerta from '../components/Alerta'
 import clienteAxios from '../config/clienteAxios'
 
+//Pagina para crear asistente
+
 const crearAsistente = () => {
 
     const [nombre, setNombre] = useState('')
@@ -14,10 +16,12 @@ const crearAsistente = () => {
     
     const [alerta, setAlerta] = useState({})
 
+    //Evento cuando manda submit en el form
     const handleSubmit = async e =>{
         e.preventDefault()
-
+        //Validar que los campos no esten vacios
         if([nombre, email, cedula, empresa, cargo].includes('')) {
+            //Set alerta
             setAlerta({
                 msg: 'Todos los campos son obligatorios',
                 error: true
@@ -29,11 +33,12 @@ const crearAsistente = () => {
         try {
             const { data } = await clienteAxios.post('/usuarios', {nombre, email, cedula, empresa,cargo} )
             console.log(data);
+            //Set alerta
             setAlerta({
                 msg: 'Asistente ingresado correctamente',
                 error: false
             })
-
+            //set campos vacios despues de guardar
             setNombre('')
             setEmail('')
             setCedula('')
@@ -60,7 +65,7 @@ const crearAsistente = () => {
                     <p className='uppercase text-left font-bold text-2xl sm:text-2xl'>Crear asistente</p>
                     
                     {msg && <Alerta alerta={alerta}/>}
-                    
+                    {/* Formulario para crear un cliente */}
                     <form onSubmit={handleSubmit}>
                         <div className='my-2'>
                             <label

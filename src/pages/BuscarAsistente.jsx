@@ -90,7 +90,7 @@ const BuscarAsistente = () => {
                 error: true
             })
         }
-
+        //set campos vacios
         setCedula('')
         setNombre('')
         setEmpresa('')
@@ -108,7 +108,7 @@ const BuscarAsistente = () => {
                 <p className='uppercase text-center font-bold text-2xl text-white sm:text-2xl'>Buscar asistente</p>
 
                 {msg && <Alerta alerta={alerta} />}
-
+                {/* Formulario buscar asistente */}
                 <form onSubmit={handleSubmitBuscar} action="" className='text-[#02275e] rounded-lg  my-auto  m-2 sm:mx-20 shadow-md flex justify-between'>
                     <input
                         autoFocus
@@ -126,6 +126,7 @@ const BuscarAsistente = () => {
                             hover:bg-sky-800 transition-colors'
                     />
                 </form>
+                {/* Formulario para imprimir QR */}
                 <div className='text-[#02275e] rounded-lg  my-auto p-8 m-3 sm:mx-20 shadow-md'>
                     <form onSubmit={handleSubmitImprimir}>
                         <div className='my-2'>

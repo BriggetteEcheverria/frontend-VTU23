@@ -4,14 +4,17 @@ import avion from '../images/avion.png'
 import clienteAxios from '../config/clienteAxios'
 import Alerta from '../components/Alerta'
 
+//Pagina para hacer checkIn vuelo Unisairline
+
 const CheckIn = () => {
 
     const [id, setId] = useState('')
     const [alerta, setAlerta] = useState({})
 
+    //Evento al hacer submit del form
     const handleSubmit = async e =>{
         e.preventDefault()
-
+        //verificar si esta vacio
         if([id].includes('')) {
             setId('')
             setAlerta({
@@ -22,13 +25,16 @@ const CheckIn = () => {
          }
 
         try {
+            //Buscar si existe cliente
             const{data} = await clienteAxios(`/usuarios/${id}`)
             const nombre =data.nombre;
+            //Mandar imprimir el ticket
             const{data2} = await clienteAxios.post(`/printers/imprimirBoleto` , {nombre})
             setAlerta({
                 msg: 'Imprimiendo...',
                 error: false
             })
+            //Borrar alerta despues de 1500ms
             setTimeout(() => {
                 setAlerta({
                     msg: '',
@@ -38,6 +44,7 @@ const CheckIn = () => {
             
             setId('')
         } catch (error) {
+            //mostrar Error
             setId('')
             setAlerta({
                 msg: error.response.data.msg,
@@ -60,7 +67,7 @@ const CheckIn = () => {
                     <p className='text-left font-bold text-2xl sm:text-4xl'>¡Es hora de viajar!</p>
 
                     { msg && <Alerta alerta={alerta} /> }
-
+                    {/* Formulario para buscar cliete y mandar a imprimir la etiqueta */}
                     <form onSubmit={handleSubmit}>
                         <div className='my-5'>
                             <label
