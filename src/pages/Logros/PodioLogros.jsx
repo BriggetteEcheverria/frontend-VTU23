@@ -40,16 +40,20 @@ const PodioLogros = () => {
             <div className='flex h-[10vh] p-1'>
                 <img src={logo} />
             </div>
+            <div className='text-center p-1'>
+                <h1 className='font-bold uppercase lg:text-5xl text-2xl lg:pb-3 text-[#02275e] pb-1'>Plan de recompensas</h1>
+                <h2 className='lg:text-4xl text-[#02275e] text-xl'>Top Huéspedes</h2>
+            </div>
 
 
             <div className='m-3'>
-                {userOrdenado.map((user,i) => {
-                    return (
+                {userOrdenado.map((user, i) => {
+                    return (i < 5) ?
                         <>
                             <div key={user._id} className='bg-blue-800 rounded-lg p-4 text-white flex flex-row m-2 justify-between'>
-                                <div>
-                                    <p className='font-bold uppercase'>{user.nombre}</p>
-                                    <p className='text-lg'>Logros obtenidos: <span className='font-black '>{user.logros.length}</span></p>
+                                <div className='lg:p-4 p-1'>
+                                    <p className='font-bold uppercase lg:text-5xl lg:pb-5 pb-3'>{user.nombre}</p>
+                                    <p className='text-lg lg:text-4xl '>Recompensas obtenidas: <span className='font-black '>{user.logros.length}</span></p>
                                 </div>
                                 {i == 0 && <img src={oro} alt="" className='w-1/5 lg:w-28' />}
                                 {i == 1 && <img src={plata} alt="" className='w-1/5 lg:w-28' />}
@@ -57,7 +61,8 @@ const PodioLogros = () => {
 
                             </div>
                         </>
-                    )
+                        : null
+
                 })}
             </div>
         </>

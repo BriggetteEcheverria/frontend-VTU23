@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 const Menu = () => {
     return (
         <div id='fondoMenu'>
-            <div className='flex h-[10vh] p-1'>
+            <div className='flex h-[10vh] mb-9'>
                 <img src={logo} />
             </div>
             {/* lg:px-96 */}
@@ -28,9 +28,13 @@ const Menu = () => {
                     hover:bg-sky-800 transition-colors text-center'>
                     Logros
                 </Link>
-                <Link to={'/podio-logros'} className='bg-[#02275e] m-3 py-10 text-white uppercase font-bold rounded hover:cursor-pointer
+                <Link to={'/podio-recompensas'} className='bg-[#02275e] m-3 py-10 text-white uppercase font-bold rounded hover:cursor-pointer
                     hover:bg-sky-800 transition-colors text-center'>
-                    Podio Logros
+                    Podio Recompensas
+                </Link>
+                <Link to={'/itinerario'} className='bg-[#02275e] m-3 py-10 text-white uppercase font-bold rounded hover:cursor-pointer
+                    hover:bg-sky-800 transition-colors text-center'>
+                    Itinerario
                 </Link>
             </div>
         </div>
