@@ -4,6 +4,7 @@ import clienteAxios from '../../config/clienteAxios'
 import oro from '../../images/medallas-01.svg'
 import plata from '../../images/medallas-02.svg'
 import bronce from '../../images/medallas-03.svg'
+import SidebarAsistente from '../../components/SidebarAsistente'
 
 //Pagina para mostrar posiciones de los logros
 
@@ -15,28 +16,29 @@ const PodioLogros = () => {
     //hook para obtener las posiciones de los usuarios dependiendo los logros
 
     useEffect(() => {
+        //Metodo para busqueda de datos
+        const dataFetch = async () => {
+            //Query para obtener todos los usuarios
+            const { data } = await clienteAxios('/usuarios')
+            //Ordenar de mayor a menor basado en la cantidad de logros
+            const sortPodio = [...data].sort((a, b) => b.logros.length - a.logros.length)
+            //set array de user ordenado por cantidad de logros de mayor a menor 
+            setUserOrdenado(sortPodio)
+        };
+
+        dataFetch()
+
         const interval = setInterval(() => {
-            //Metodo para busqueda de datos
-            const dataFetch = async () => {
-                //Query para obtener todos los usuarios
-                const { data } = await clienteAxios('/usuarios')
-                //Ordenar de mayor a menor basado en la cantidad de logros
-                const sortPodio = [...data].sort((a, b) => b.logros.length - a.logros.length)
-                //set array de user ordenado por cantidad de logros de mayor a menor 
-                setUserOrdenado(sortPodio)
-            };
-            if (!flag) {
-                dataFetch()
-            }
-            return () => {
-                setFlag(true)
-            }
+            dataFetch()
         }, 1000);
-        return () => clearInterval(interval);
+
+        return () => {
+            clearInterval(interval);
+        }
     }, []);
 
     return (
-        <>
+        <SidebarAsistente>
             <div className='flex h-[10vh] p-1'>
                 <img src={logo} />
             </div>
@@ -65,7 +67,7 @@ const PodioLogros = () => {
 
                 })}
             </div>
-        </>
+        </SidebarAsistente>
 
     )
 }

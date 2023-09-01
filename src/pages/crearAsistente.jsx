@@ -32,7 +32,9 @@ const crearAsistente = () => {
         // Crear el usuario en la API
         try {
             const { data } = await clienteAxios.post('/usuarios', {nombre, email, cedula, empresa,cargo} )
-            console.log(data);
+            const id = data._id
+            //Imprimir QR
+            const { data2 } = await clienteAxios.post(`/printers/reciboQR`,{id})
             //Set alerta
             setAlerta({
                 msg: 'Asistente ingresado correctamente',

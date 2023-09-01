@@ -4,6 +4,7 @@ import logo from '../../images/logoUnis.png'
 import LogroCard from '../../components/LogroCard'
 import Alerta from '../../components/Alerta'
 import clienteAxios from '../../config/clienteAxios'
+import SidebarAsistente from '../../components/SidebarAsistente'
 
 // Pagina para buscar el avance de tus logros 
 
@@ -120,7 +121,7 @@ const Logros = () => {
     }
     const { msg } = alerta
     return (
-        <>
+        <SidebarAsistente>
             <div className='flex h-[10vh]'>
                 <img src={logo} />
             </div>
@@ -159,10 +160,10 @@ const Logros = () => {
                 <LogroCard logroImg={'../src/images/mantarrayaDorado.svg'} logroNombre={'LOGRO MANTARRAYA PREMIUM'} logro={logroZktecoPremium} />
 
             </div>
-            <div className='h-[80vh]'>
+            {/* <div className='h-[80vh]'>
                 <img src={fondoMar} alt="" className=' inset-x-0 bottom-0 fixed' />
-            </div>
-        </>
+            </div> */}
+        </SidebarAsistente>
     )
 }
 

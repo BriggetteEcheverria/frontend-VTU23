@@ -29,7 +29,7 @@ const CheckIn = () => {
             const{data} = await clienteAxios(`/usuarios/${id}`)
             const nombre =data.nombre;
             //Mandar imprimir el ticket
-            const{data2} = await clienteAxios.post(`/printers/imprimirBoleto` , {nombre})
+            const{data2} = await clienteAxios.post(`/printers/imprimirBoleto` , {nombre, id})
             setAlerta({
                 msg: 'Imprimiendo...',
                 error: false

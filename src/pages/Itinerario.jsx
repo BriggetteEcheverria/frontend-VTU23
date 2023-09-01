@@ -1,6 +1,8 @@
 import React from 'react'
 import logo from '../images/logo.png'
 import Vuelo from '../components/Vuelo';
+import SidebarAsistente from '../components/SidebarAsistente';
+
 
 const Itinerario = () => {
     const locale = 'en';
@@ -25,7 +27,7 @@ const Itinerario = () => {
     const time = today.toLocaleTimeString(locale, { hour: 'numeric', hour12: true, minute: 'numeric' });
 
     return (
-        <>
+        <SidebarAsistente>
             <div className='bg-[#02275e] flex p-5 justify-around place-items-center '>
                 <img src={logo} alt="" className='w-1/3 lg:w-1/6' />
                 <p className='text-white font-black'>ITINERARIO</p>
@@ -50,7 +52,7 @@ const Itinerario = () => {
                     hora: '9:50 AM',
                     vuelo: "src/images/logos/gainscha.png",
                     destino: 'CONFERENCIA',
-                    estado: 'despego',
+                    estado: 'aterrizo',
                     color:'gris'
                 })} />
             <Vuelo info={
@@ -58,7 +60,7 @@ const Itinerario = () => {
                     hora: '10:40 AM',
                     vuelo: "src/images/logos/imin.png",
                     destino: 'CONFERENCIA',
-                    estado: 'A tiempo',
+                    estado: 'aterrizo',
                     color:'azul'
                 })} />
             <Vuelo info={
@@ -66,7 +68,7 @@ const Itinerario = () => {
                     hora: '11:10 AM',
                     vuelo: "src/images/logos/unitech.png",
                     destino: 'CONFERENCIA',
-                    estado: 'A tiempo',
+                    estado: 'despego',
                     color:'gris'
                 })} />
             <Vuelo info={
@@ -102,7 +104,7 @@ const Itinerario = () => {
                     color:'gris'
                 })} />
 
-        </>
+        </SidebarAsistente>
     )
 }
 
