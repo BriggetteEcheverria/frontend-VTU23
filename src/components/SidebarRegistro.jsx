@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import {
-    FaTh,
     FaBars,
-    FaUserAlt,
-    FaRegChartBar,
-    FaCommentAlt
+    FaSearch,
+    FaUserPlus
 }from "react-icons/fa";
 import { NavLink } from 'react-router-dom';
 
@@ -13,25 +11,15 @@ const SidebarRegistro= ({children}) => {
     const toggle = () => setIsOpen (!isOpen);
     const menuItem=[
         {
-            path:"/",
-            name:"Buscar mis logros",
-            icon:<FaTh/>
+            path:"/buscar-asistente",
+            name:"Registro Asistente",
+            icon:<FaSearch/>
         },
         {
-            path:"/podio-recompensas",
-            name:"Top Huéspedes",
-            icon:<FaUserAlt/>
+            path:"/crear-asistente",
+            name:"Buscar Asistente",
+            icon:<FaUserPlus/>
         },
-        {
-            path:"/itinerario",
-            name:"Itinerario",
-            icon:<FaRegChartBar/>
-        },
-        {
-            path:"/itinerario",
-            name:"Cómo jugar",
-            icon:<FaCommentAlt/>
-        }
     ]
     return (
         <div className="container">

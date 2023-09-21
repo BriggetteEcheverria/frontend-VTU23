@@ -10,13 +10,9 @@ const MenuLogros = () => {
             </div>
             {/* Menu de todos las marcas para ingresar a los logros */}
             <div className='justify-center text-center flex flex-col lg:px-80'>
-                <Link to={'/buscar-logros'} className='bg-[#02275e] m-5 py-10 text-white uppercase font-bold rounded hover:cursor-pointer
+                <Link to={'/impresion-tickets'} className='bg-[#02275e] m-5 py-10 text-white uppercase font-bold rounded hover:cursor-pointer
                     hover:bg-sky-800 transition-colors text-center'>
-                    Buscar mis Logros
-                </Link>
-                <Link to={'/menu-conseguir-logros?marca=zebra'} className='bg-[#02275e] m-5 py-10 text-white uppercase font-bold rounded hover:cursor-pointer
-                    hover:bg-sky-800 transition-colors text-center'>
-                    Logros Zebra
+                    Impresión tickets
                 </Link>
                 <Link to={'/menu-conseguir-logros?marca=zkteco'} className='bg-[#02275e] m-5 py-10 text-white uppercase font-bold rounded hover:cursor-pointer
                     hover:bg-sky-800 transition-colors text-center'>

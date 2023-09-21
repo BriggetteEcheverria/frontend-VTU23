@@ -8,8 +8,8 @@
 
 
 #unisAirline {
-    overflow-y: scroll;
-    height: 800px;
+    /* overflow-y: scroll;
+    height: 800px; */
     background-image: url("images/fondoUnisAirline.png");
     background-size: cover;
 }

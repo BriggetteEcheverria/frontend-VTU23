@@ -33,7 +33,7 @@ const Itinerario = () => {
                 <p className='text-white font-black'>ITINERARIO</p>
                 <p className='text-white font-bold'>{time}</p>
             </div>
-            <div className='bg-[#295eac] grid grid-cols-4 p-2 justify-around place-items-center font-black uppercase text-xs text-center lg:text-base'>
+            <div className='bg-[#295eac] grid grid-cols-4 p-2 justify-around place-items-center font-black uppercase text-[9px] text-center lg:text-base'>
                 <p className='text-white font-bold'>Hora programada</p>
                 <p className='text-white font-bold'>Vuelo</p>
                 <p className='text-white font-bold'>Destino</p>

@@ -13,10 +13,9 @@ main{
     background: #021f4c;
     color: #fff;
     height: 100vh;
-    width: 200px;
     transition: all 0.5s;
     position: -webkit-sticky;
-    position: sticky;
+    position: sticky !important;
     top: 0 !important;
 
 }
@@ -52,3 +51,7 @@ main{
 .icon, .link_text{
     font-size: 20px;
 }
+
+ol > li::marker {
+    font-weight: bold;
+  }

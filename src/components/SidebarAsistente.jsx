@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import {
-    FaTh,
+    FaMedal,
     FaBars,
-    FaUserAlt,
-    FaRegChartBar,
-    FaCommentAlt
+    FaHome,
+    FaInfoCircle,
+    FaMapMarkedAlt
 }from "react-icons/fa";
 import { NavLink } from 'react-router-dom';
 
@@ -16,22 +16,22 @@ const SidebarAsistente = ({children}) => {
         {
             path:"/",
             name:"Buscar mis logros",
-            icon:<FaTh/>
+            icon:<FaHome/>
         },
         {
             path:"/podio-recompensas",
             name:"Top Huéspedes",
-            icon:<FaUserAlt/>
+            icon:<FaMedal/>
         },
         {
             path:"/itinerario",
             name:"Itinerario",
-            icon:<FaRegChartBar/>
+            icon:<FaMapMarkedAlt/>
         },
         {
-            path:"/itinerario",
+            path:"/como-jugar",
             name:"Cómo jugar",
-            icon:<FaCommentAlt/>
+            icon:<FaInfoCircle/>
         }
     ]
     return (
