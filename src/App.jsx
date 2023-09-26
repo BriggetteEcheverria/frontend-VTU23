@@ -16,6 +16,7 @@ import ZebraEquipaje from "./pages/ZebraEquipaje";
 import BrazaleteZebra from "./pages/BrazaleteZebra";
 import ImpresionTickets from "./pages/Logros/ImpresionTickets";
 import FiestaZebra from "./pages/FiestaZebra";
+import EloRetos from "./pages/EloRetos";
 
 //Routeo para redireccionar 
 
@@ -44,11 +45,13 @@ function App() {
           <Route path='podio-recompensas-public' element={<PodioLogros />} />
           <Route path='impresion-tickets' element={<ImpresionTickets />} />
 
-
           {/* ZEBRA ROUTAS */}
           <Route path='equipaje-zebra' element={<ZebraEquipaje />} />
           <Route path='brazalete-zebra' element={<BrazaleteZebra />} />
           <Route path='fiesta-zebra' element={<FiestaZebra />} />
+
+           {/* ELO ROUTAS */}
+           <Route path='retos-elo' element={<EloRetos />} />
 
         </Route>
       </Routes>
