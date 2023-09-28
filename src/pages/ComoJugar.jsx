@@ -9,7 +9,7 @@ const ComoJugar = () => {
                 <img src={logo} className='h-12' />
             </div>
             <div className='mx-5 mb-5 text-justify'>
-                <p className='text-center'>Gracias por escoger el <br /><spam className='uppercase font-bold text-[#02275e]'>Resort Uniscan – Galápagos</spam><br /> para su estadía.</p>
+                <p className='text-center'>Gracias por escoger el <br /><span className='uppercase font-bold text-[#02275e]'>Resort Uniscan – Galápagos</span><br /> para su estadía.</p>
                 <br />
                 <p className='text-center text-[#02275e] italic'>¡Te recompensamos por ser uno de nuestros huéspedes!</p>
                 <br />

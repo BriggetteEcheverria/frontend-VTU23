@@ -17,6 +17,7 @@ import BrazaleteZebra from "./pages/BrazaleteZebra";
 import ImpresionTickets from "./pages/Logros/ImpresionTickets";
 import FiestaZebra from "./pages/FiestaZebra";
 import EloRetos from "./pages/EloRetos";
+import ReservarVR from "./pages/ReservarVR";
 
 //Routeo para redireccionar 
 
@@ -52,6 +53,7 @@ function App() {
 
            {/* ELO ROUTAS */}
            <Route path='retos-elo' element={<EloRetos />} />
+           <Route path='reservar-vr' element={<ReservarVR />} />
 
         </Route>
       </Routes>

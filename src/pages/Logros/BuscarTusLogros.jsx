@@ -207,8 +207,8 @@ const Logros = () => {
                 <p className='text-xs pt-4 px-3 text-justify'>*Selecciona cada recompensa para saber como conseguirla</p>
                 {/* Mensaje direccionado a cliente para que vea cuantos logros le faltan */}
                 <div hidden={isUser ? false : true} className='text-center mt-5'>
-                    <p hidden={isComplete ? true : false}> ¡Hola <spam className='text-[#285aa4] font-bold uppercase'>{nombre}</spam> este es tu avance hasta este momento! <br /> Te falta solo <spam className='text-[#285aa4] font-bold uppercase'>{logrosFaltantes}</spam> logros</p>
-                    <p hidden={isComplete ? false : true}> ¡Felicitaciones <spam className='text-[#e2bf31] font-bold uppercase'>{nombre}</spam> conseguiste todos los logros!  </p>
+                    <p hidden={isComplete ? true : false}> ¡Hola <span className='text-[#285aa4] font-bold uppercase'>{nombre}</span> este es tu avance hasta este momento! <br /> Te falta solo <span className='text-[#285aa4] font-bold uppercase'>{logrosFaltantes}</span> logros</p>
+                    <p hidden={isComplete ? false : true}> ¡Felicitaciones <span className='text-[#e2bf31] font-bold uppercase'>{nombre}</span> conseguiste todos los logros!  </p>
                 </div>
                 {/* Cards de todos los logros */}
                 <div className="grid grid-cols-2 grid-flow-row gap-4 text-center my-5 mx-5">

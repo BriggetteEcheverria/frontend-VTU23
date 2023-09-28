@@ -51,7 +51,7 @@ const PodioLogros = () => {
             <div className='m-3'>
                 {userOrdenado.map((user, i) => {
                     return (i < 5) ?
-                        <>
+                        <div key={i}>
                             <div key={user._id} className='bg-blue-800 rounded-lg p-4 text-white flex flex-row m-2 justify-between'>
                                 <div className='lg:p-4 p-1'>
                                     <p className='font-bold uppercase lg:text-5xl lg:pb-5 pb-3'>{user.nombre}</p>
@@ -62,7 +62,7 @@ const PodioLogros = () => {
                                 {i == 2 && <img src={bronce} alt="" className='w-1/5 lg:w-28' />}
 
                             </div>
-                        </>
+                        </div>
                         : null
 
                 })}
