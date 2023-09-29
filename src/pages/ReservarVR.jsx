@@ -5,7 +5,6 @@ import clienteAxios from '../config/clienteAxios'
 
 const ReservarVR = () => {
     const [horario, setHorario] = useState([])
-    const [flag, setFlag] = useState(false)
     const horarioSelect = [
         { hora: '2:30', cant: 0, horaDesc: '2:30 - 2:40' },
         { hora: '2:40', cant: 0, horaDesc: '2:40 - 2:50' },
@@ -80,6 +79,7 @@ const ReservarVR = () => {
                 error: false
             })
 
+
         } catch (error) {
             console.log(error);
             //Set alerta con Error
@@ -88,7 +88,7 @@ const ReservarVR = () => {
                 error: true
             })
             //Set campos en vacio
-            setNombre('')
+
         }
 
     }
@@ -104,7 +104,7 @@ const ReservarVR = () => {
 
             return
         }
-
+        //cambiar el state del horario 
         const newState = horario.map(horario => {
             // 👇️ if id equals 2, update country property
             if (horario.hora === fecha) {
@@ -115,8 +115,23 @@ const ReservarVR = () => {
             // 👇️ otherwise return the object as is
             return horario;
         });
+        setAlerta({
+            msg: 'Tu reservación está confirmada revísala en la app',
+            error: false
+        })
+        setTimeout(() => {
+            setAlerta({
+                msg: '',
+                error: false
+            })
+        }, 2000);
 
         setHorario(newState);
+
+        setNombre('')
+        setisUser(false)
+
+        setFecha('')
 
 
     }
@@ -128,7 +143,7 @@ const ReservarVR = () => {
                     <img src={logo} />
                 </div>
 
-                <div className='mt-36 justify-center lg:w-2/3 mx-auto'>
+                <div className='mt-20 justify-center lg:w-2/3 mx-auto'>
                     <p className='uppercase text-center font-bold text-2xl  text-[#02275e] sm:text-2xl'>Reserva sala de Juegos</p>
                     <div className='flex justify-center'>
                         {msg && <Alerta alerta={alerta} />}
@@ -172,7 +187,7 @@ const ReservarVR = () => {
                                     <select value={fecha} onChange={e => setFecha(e.target.value)} name="fecha" id='fecha' className="w-full mt-3 mb-3 p-3 border rounded-xl bg-gray-50  border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                         <option value=''>Elige tu horario preferido</option>
                                         {horario.map((item, i) => {
-                                            if(item.cant < 2){
+                                            if (item.cant < 2) {
                                                 return <option key={i} value={item.hora}>{item.horaDesc}</option>
                                             }
                                         })}
