@@ -19,6 +19,7 @@ import FiestaZebra from "./pages/FiestaZebra";
 import EloRetos from "./pages/EloRetos";
 import ReservarVR from "./pages/ReservarVR";
 import ListadoReservasVr from "./pages/ListadoReservasVr";
+import PuntuacionVR from "./pages/puntuacionVR";
 
 //Routeo para redireccionar 
 
@@ -56,6 +57,7 @@ function App() {
            <Route path='retos-elo' element={<EloRetos />} />
            <Route path='reservar-vr' element={<ReservarVR />} />
            <Route path='reservas-vr' element={<ListadoReservasVr />} />
+           <Route path='puntuacion-vr' element={<PuntuacionVR />} />
 
 
         </Route>

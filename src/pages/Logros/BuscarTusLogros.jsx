@@ -30,6 +30,8 @@ const Logros = () => {
     const [isRecompensas, setIsRecompensas] = useState(true)
     const [isVR, setIsVR] = useState(false)
     const [isEquipajeZebra, setIsEquipajeZebra] = useState(false)
+    const [horarioVR, setHorarioVR] = useState('')
+    const [puntuacionVR, setPuntuacionVR] = useState('')
 
     useEffect(() => {
         const cedula = localStorage.getItem('cedula')
@@ -50,6 +52,8 @@ const Logros = () => {
         const { data } = await clienteAxios(`/usuarios/cedula/${id}`)
         setIsVR(data.actividadVR.estado)
         setIsEquipajeZebra(data.actividadZebra.estado)
+        setHorarioVR(data.actividadVR.fecha)
+        setPuntuacionVR(data.actividadVR.puntuacion)
 
         setCedula(data.cedula)
         //en listar los logros del usuario
@@ -291,8 +295,8 @@ const Logros = () => {
                 <div className='m-5 p-5 bg-neutral-300 rounded-lg'>
                     <p className='uppercase font-extrabold text-lg'>Juego Realidad Virtual</p>
                     <div hidden={isVR ? false : true}>
-                        <p>Horario de reserva: <span className='font-extrabold'>15:00 - 15:15</span></p>
-                        <p>Puntaje: <span className='font-extrabold'>0</span></p>
+                        <p>Horario de reserva: <span className='font-extrabold'>{horarioVR}</span></p>
+                        <p>Puntaje: <span className='font-extrabold'>{puntuacionVR}</span></p>
                     </div>
                     <div hidden={isVR ? true : false}>
                         <p>Acércate al stand de ELO para poder agendar tu cita de Realidad Virtual</p>
