@@ -5,15 +5,16 @@ import Alerta from '../../components/Alerta'
 
 const ImpresionTickets = () => {
 
-    const [id, setId] = useState('')
+    const [input, setInput] = useState('')
     const [nombre, setNombre] = useState('')
     const [logros, setLogros] = useState('')
     const [isUser, setIsUser] = useState(false)
     const [alerta, setAlerta] = useState('')
+    const [id, setId] = useState('')
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        if ([id].includes('')) {
+        if ([input].includes('')) {
             setAlerta({
                 msg: 'Escanée su código',
                 error: true
@@ -21,19 +22,21 @@ const ImpresionTickets = () => {
             return
         }
         try {
-            const { data } = await clienteAxios(`/usuarios/${id}`)
+            const { data } = await clienteAxios(`/usuarios/${input}`)
             const nombreUser = data.nombre
             const numLogros = (data.logros).length
+            setId(data._id)
             setIsUser(true)
             setNombre(nombreUser)
             setLogros(numLogros)
-            setId('')
+            setInput('')
             setAlerta({
                 msg: '',
                 error: false
             })
 
         } catch (error) {
+            setInput('')
             setAlerta({
                 msg: error.response.data.msg,
                 error: true
@@ -42,20 +45,37 @@ const ImpresionTickets = () => {
     }
     const handleSubmitImpresion = async (e) => {
         e.preventDefault()
-        //const { data2 } = await clienteAxios.post(`/printers/imprimirSorteoFinal`, 'HOST_BOLETERA_1')
-        setIsUser(false)
-        setAlerta({
-            msg: 'Imprimiendo...',
-            error: false
-        })
-        //Borrar alerta despues de 1500ms
-        setTimeout(() => {
+        try {
+            const nombrehost = 'HOST_BOLETERA_1'
+            const { data2 } = await clienteAxios.post('/printers/imprimirSorteoFinal', { nombrehost, id })
+            setIsUser(false)
             setAlerta({
-                msg: '',
+                msg: 'Imprimiendo...',
                 error: false
             })
-          }, 2000);
-        
+            //Borrar alerta despues de 1500ms
+            setTimeout(() => {
+                setAlerta({
+                    msg: '',
+                    error: false
+                })
+            }, 2000);
+        } catch (error) {
+            setIsUser(false)
+            setAlerta({
+                msg: error.response.data.msg,
+                error: true
+            })
+            //Borrar alerta despues de 1500ms
+            setTimeout(() => {
+                setAlerta({
+                    msg: '',
+                    error: false
+                })
+            }, 5000);
+        }
+
+
     }
 
     const { msg } = alerta
@@ -71,9 +91,9 @@ const ImpresionTickets = () => {
                     <input
                         autoFocus
                         type="text"
-                        value={id}
+                        value={input}
                         disabled={isUser ? true : false}
-                        onChange={e => setId(e.target.value)}
+                        onChange={e => setInput(e.target.value)}
                         placeholder='Escanéa tu código QR '
                         className={` ${isUser ? 'bg-gray-200' : 'bg-gray-50'} w-full mt-3 p-3 border border-[#02275e] rounded-xl bg-gray-50 text-[#02275e]`} />
                 </form>

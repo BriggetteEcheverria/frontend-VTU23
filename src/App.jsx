@@ -20,6 +20,11 @@ import EloRetos from "./pages/EloRetos";
 import ReservarVR from "./pages/ReservarVR";
 import ListadoReservasVr from "./pages/ListadoReservasVr";
 import PuntuacionVR from "./pages/puntuacionVR";
+import TablaPuntuacionesVR from "./pages/TablaPuntuacionesVR";
+import LogrosCharla from "./pages/Logros/LogrosCharla";
+import Charlas2 from "./pages/Logros/Charlas2";
+import Charlas3 from "./pages/Logros/Charlas3";
+
 
 //Routeo para redireccionar 
 
@@ -33,6 +38,10 @@ function App() {
           <Route path='itinerario' element={<Itinerario />} />
           <Route path='podio-recompensas' element={<PodioLogros />} />
           <Route path='como-jugar' element={<ComoJugar />} />
+          <Route path='logros-charla' element={<LogrosCharla />} />
+          <Route path='charlas-3' element={<Charlas3 />} />
+          <Route path='charlas-2' element={<Charlas2 />} />
+
 
           <Route path="menuZebra" element={<MenuZebra />} />
           <Route path="check-in" element={<CheckIn />} />
@@ -58,6 +67,7 @@ function App() {
            <Route path='reservar-vr' element={<ReservarVR />} />
            <Route path='reservas-vr' element={<ListadoReservasVr />} />
            <Route path='puntuacion-vr' element={<PuntuacionVR />} />
+           <Route path='tabla-puntuacion-vr' element={<TablaPuntuacionesVR />} />
 
 
         </Route>

@@ -6,27 +6,27 @@ import clienteAxios from '../config/clienteAxios'
 const ReservarVR = () => {
     const [horario, setHorario] = useState([])
     const horarioSelect = [
-        { hora: '2:30', cant: 0, horaDesc: '2:30 - 2:40' },
-        { hora: '2:40', cant: 0, horaDesc: '2:40 - 2:50' },
-        { hora: '2:50', cant: 0, horaDesc: '2:50 - 3:00' },
-        { hora: '3:00', cant: 0, horaDesc: '3:00 - 3:10' },
-        { hora: '3:10', cant: 0, horaDesc: '3:10 - 3:20' },
-        { hora: '3:20', cant: 0, horaDesc: '3:20 - 3:30' },
-        { hora: '3:40', cant: 0, horaDesc: '3:30 - 3:40' },
-        { hora: '3:30', cant: 0, horaDesc: '3:40 - 3:50' },
-        { hora: '3:50', cant: 0, horaDesc: '3:50 - 4:00' },
-        { hora: '4:00', cant: 0, horaDesc: '4:00 - 4:10' },
-        { hora: '4:10', cant: 0, horaDesc: '4:10 - 4:20' },
-        { hora: '4:20', cant: 0, horaDesc: '4:20 - 4:30' },
-        { hora: '4:30', cant: 0, horaDesc: '4:30 - 4:40' },
-        { hora: '4:40', cant: 0, horaDesc: '4:40 - 4:50' },
-        { hora: '4:50', cant: 0, horaDesc: '4:50 - 5:00' },
-        { hora: '5:00', cant: 0, horaDesc: '5:00 - 5:10' },
-        { hora: '5:10', cant: 0, horaDesc: '5:10 - 5:20' },
-        { hora: '5:20', cant: 0, horaDesc: '5:20 - 5:30' },
-        { hora: '5:30', cant: 0, horaDesc: '5:30 - 5:40' },
-        { hora: '5:40', cant: 0, horaDesc: '5:40 - 5:50' },
-        { hora: '5:50', cant: 0, horaDesc: '5:50 - 6:00' }]
+        { idHorario: '1', cant: 0, horaDesc: '2:30 - 2:40' },
+        { idHorario: '2', cant: 0, horaDesc: '2:40 - 2:50' },
+        { idHorario: '3', cant: 0, horaDesc: '2:50 - 3:00' },
+        { idHorario: '4', cant: 0, horaDesc: '3:00 - 3:10' },
+        { idHorario: '5', cant: 0, horaDesc: '3:10 - 3:20' },
+        { idHorario: '6', cant: 0, horaDesc: '3:20 - 3:30' },
+        { idHorario: '7', cant: 0, horaDesc: '3:30 - 3:40' },
+        { idHorario: '8', cant: 0, horaDesc: '3:40 - 3:50' },
+        { idHorario: '9', cant: 0, horaDesc: '3:50 - 4:00' },
+        { idHorario: '10', cant: 0, horaDesc: '4:00 - 4:10' },
+        { idHorario: '11', cant: 0, horaDesc: '4:10 - 4:20' },
+        { idHorario: '12', cant: 0, horaDesc: '4:20 - 4:30' },
+        { idHorario: '13', cant: 0, horaDesc: '4:30 - 4:40' },
+        { idHorario: '14', cant: 0, horaDesc: '4:40 - 4:50' },
+        { idHorario: '15', cant: 0, horaDesc: '4:50 - 5:00' },
+        { idHorario: '16', cant: 0, horaDesc: '5:00 - 5:10' },
+        { idHorario: '17', cant: 0, horaDesc: '5:10 - 5:20' },
+        { idHorario: '18', cant: 0, horaDesc: '5:20 - 5:30' },
+        { idHorario: '19', cant: 0, horaDesc: '5:30 - 5:40' },
+        { idHorario: '20', cant: 0, horaDesc: '5:40 - 5:50' },
+        { idHorario: '21', cant: 0, horaDesc: '5:50 - 6:00' }]
 
     useEffect(() => {
         const horario = JSON.parse(localStorage.getItem('horario'));
@@ -42,8 +42,6 @@ const ReservarVR = () => {
             localStorage.setItem('horario', JSON.stringify(horario));
         }
     }, [horario]);
-
-
 
     const [fecha, setFecha] = useState('')
     const [alerta, setAlerta] = useState('')
@@ -65,11 +63,9 @@ const ReservarVR = () => {
             setNombre('')
             return
         }
-
         try {
             //Query get para obtener datos del contacto
             const { data } = await clienteAxios(`/usuarios/${inputBuscador}`)
-            console.log(data);
             setId(data._id)
             setisUser(true)
             //Set informacion apra mostrar en los campos
@@ -81,8 +77,6 @@ const ReservarVR = () => {
                 msg: '',
                 error: false
             })
-
-
         } catch (error) {
             console.log(error);
             //Set alerta con Error
@@ -90,13 +84,27 @@ const ReservarVR = () => {
                 msg: error.response.data.msg,
                 error: true
             })
-            //Set campos en vacio
+            setInputBuscador('')
 
         }
 
     }
+
+    function actualizarHorario() {
+        //cambiar el state del horario 
+        const newState = horario.map(horario => {
+            if (horario.horaDesc === fecha) {
+                const cantidad = horario.cant
+                return { ...horario, cant: cantidad + 1 };
+            }
+            return horario;
+        });
+        setHorario(newState);
+    }
+    
     const handleSubmitReservar = async e => {
         e.preventDefault()
+
         //Verificar que no este vacio el campo
         if ([fecha].includes('')) {
             //Set alerta de error
@@ -108,8 +116,15 @@ const ReservarVR = () => {
             return
         }
         try {
+            let idHorario = ''
+            actualizarHorario()
+            horario.map(horario => {
+                if(horario.horaDesc === fecha){
+                    idHorario=horario.idHorario
+                }
+            });
             //Query get para obtener datos del contacto
-            const { data } = await clienteAxios.post(`/usuarios/activarVR/${id}`,{ fecha })
+            const { data } = await clienteAxios.post(`/usuarios/activarVR/${id}`, { fecha , idHorario })
             setAlerta({
                 msg: 'Tu reservación está confirmada revísala en la app',
                 error: false
@@ -122,12 +137,11 @@ const ReservarVR = () => {
             }, 2000);
             setNombre('')
             setisUser(false)
-    
+
             setFecha('')
 
 
         } catch (error) {
-            console.log(error);
             //Set alerta con Error
             setAlerta({
                 msg: error.response.data.msg,
@@ -136,19 +150,7 @@ const ReservarVR = () => {
             //Set campos en vacio
 
         }
-        //cambiar el state del horario 
-        const newState = horario.map(horario => {
-            // 👇️ if id equals 2, update country property
-            if (horario.hora === fecha) {
-                const cantidad = horario.cant
-                return { ...horario, cant: cantidad + 1 };
-            }
 
-            // 👇️ otherwise return the object as is
-            return horario;
-        });
-
-        setHorario(newState);
 
     }
     const { msg } = alerta
@@ -198,9 +200,13 @@ const ReservarVR = () => {
                                 <label
                                     className=' text-white block text-xl font-bold'
                                     htmlFor='nombre'
-                                >Escoge tu hora para reservar:</label>
+                                >Escoge tu horario para reservar:</label>
                                 <div className='flex flex-row text-center justify-center gap-10'>
-                                    <select value={fecha} onChange={e => setFecha(e.target.value)} name="fecha" id='fecha' className="w-full mt-3 mb-3 p-3 border rounded-xl bg-gray-50  border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    <select value={fecha}
+                                        onChange={e => {
+                                            setFecha(e.target.value)
+                                        }}
+                                        name="fecha" id='fecha' className="w-full mt-3 mb-3 p-3 border rounded-xl bg-gray-50  border-gray-300 text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                         <option value=''>Elige tu horario preferido</option>
                                         {horario.map((item, i) => {
                                             if (item.cant < 2) {
