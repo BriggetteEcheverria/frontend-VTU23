@@ -24,6 +24,7 @@ import TablaPuntuacionesVR from "./pages/TablaPuntuacionesVR";
 import LogrosCharla from "./pages/Logros/LogrosCharla";
 import Charlas2 from "./pages/Logros/Charlas2";
 import Charlas3 from "./pages/Logros/Charlas3";
+import TriviaZebra from "./pages/TriviaZebra";
 
 
 //Routeo para redireccionar 
@@ -61,6 +62,7 @@ function App() {
           <Route path='equipaje-zebra' element={<ZebraEquipaje />} />
           <Route path='brazalete-zebra' element={<BrazaleteZebra />} />
           <Route path='fiesta-zebra' element={<FiestaZebra />} />
+          <Route path='trivia-zebra' element={<TriviaZebra />} />
 
            {/* ELO ROUTAS */}
            <Route path='retos-elo' element={<EloRetos />} />

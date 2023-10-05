@@ -28,8 +28,13 @@ const Charlas2 = () => {
 
         // Asigna el logro al cliente que se ha ingresado en el input
         try {
-            //manda por post el id del logro y el id del usuario para asignarle el logro
-            const { data } = await clienteAxios.post('/usuarios/asignarLogro', { idLogro, idUsuario })
+            const idLogro = ['651dbfc954eb99d8d33db322', '651dc00f54eb99d8d33db323']
+
+            clienteAxios.all(idLogro.map((idLogro) => clienteAxios.post('/usuarios/asignarLogro', { idLogro, idUsuario }))).then(
+                (data) => console.log(data),
+            );
+
+            //const {data} = await clienteAxios.post('/usuarios/asignarLogro', { idLogro, idUsuario })
             //setea el campo usuario vacio
             setIdUsuario('')
             //muestra alerta
@@ -39,6 +44,7 @@ const Charlas2 = () => {
             })
 
         } catch (error) {
+            console.log(error);
             //setea el campo usuario vacio
             setIdUsuario('')
             //muestra alerta
