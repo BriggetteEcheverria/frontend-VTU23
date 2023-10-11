@@ -25,6 +25,7 @@ import LogrosCharla from "./pages/Logros/LogrosCharla";
 import Charlas2 from "./pages/Logros/Charlas2";
 import Charlas3 from "./pages/Logros/Charlas3";
 import TriviaZebra from "./pages/TriviaZebra";
+import CorreosCharla from "./pages/CorreosCharla";
 
 
 //Routeo para redireccionar 
@@ -42,6 +43,7 @@ function App() {
           <Route path='logros-charla' element={<LogrosCharla />} />
           <Route path='charlas-3' element={<Charlas3 />} />
           <Route path='charlas-2' element={<Charlas2 />} />
+          <Route path='correos-charla' element={<CorreosCharla />} />
 
 
           <Route path="menuZebra" element={<MenuZebra />} />

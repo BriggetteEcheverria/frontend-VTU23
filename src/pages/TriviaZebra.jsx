@@ -3,6 +3,7 @@ import logo from '../images/logoUnis.png'
 import logoZebra from '../images/logos/zebraN.png'
 import gafasBambu from '../images/gafasBambu.jpeg'
 import { useTimer } from 'react-timer-hook'
+import Alerta from '../components/Alerta'
 
 
 const TriviaZebra = () => {
@@ -74,6 +75,8 @@ const TriviaZebra = () => {
     const [pregunta, setPregunta] = useState(0)
     const [isPregunta, setIsPregunta] = useState(false)
     const [isExpired, setIsExpired] = useState(false)
+    const [alerta, setAlerta] = useState('')
+    const [isCorrecto, setIsCorrecto] = useState(false)
 
     //CUENTA REGRESIVA
     const expiryTimestamp = new Date();
@@ -85,7 +88,6 @@ const TriviaZebra = () => {
         restart
     } = useTimer({
         expiryTimestamp, onExpire: () => {
-            console.warn("Se acabo el tiempo...")
             setIsExpired(true)
             setIsPregunta(false)
         }
@@ -93,6 +95,7 @@ const TriviaZebra = () => {
 
     //FUNCION PARA INICIAR TRIVIA
     const handleMostrarPregunta = () => {
+        unselect()
         setIsPregunta(true)
         var aleatorio = Math.floor(Math.random() * 10)
         setPregunta(aleatorio)
@@ -100,19 +103,21 @@ const TriviaZebra = () => {
         const time = new Date();
         time.setSeconds(time.getSeconds() + 10);
         restart(time)
-        // return console.log(listaPreguntas[aleatorio])
-
     }
     //USE EFFECT PARA CONOCER LA RESPUESTA CORRECTA
     useEffect(() => {
         var test = false
         listaPreguntas.forEach((pregunta) => {
             test = pregunta.opciones.some((opcion, index) => ((opcion == respuesta) && (index == pregunta.respuesta)))
-            console.log(test);
+            if (test) {
+                handleMostrarPregunta()
+                setIsCorrecto(true)
+            } else {
+                //setIsCorrecto(false)
+                //setIsPregunta(false)
+            }
         })
-        if(test){
-            handleMostrarPregunta()
-        }
+
     }, [respuesta])
 
     //CONOCER LA OPCION SELECCIONADA
@@ -123,6 +128,22 @@ const TriviaZebra = () => {
         }
     }
 
+    //DESELECCIONAR
+    function unselect() {
+        document.querySelectorAll("[name='1']").forEach((x) => x.checked = false);
+        document.querySelectorAll("[name='2']").forEach((x) => x.checked = false);
+        document.querySelectorAll("[name='3']").forEach((x) => x.checked = false);
+        document.querySelectorAll("[name='4']").forEach((x) => x.checked = false);
+        document.querySelectorAll("[name='5']").forEach((x) => x.checked = false);
+        document.querySelectorAll("[name='6']").forEach((x) => x.checked = false);
+        document.querySelectorAll("[name='7']").forEach((x) => x.checked = false);
+        document.querySelectorAll("[name='8']").forEach((x) => x.checked = false);
+        document.querySelectorAll("[name='9']").forEach((x) => x.checked = false);
+        document.querySelectorAll("[name='10']").forEach((x) => x.checked = false);
+    }
+
+
+    const { msg } = alerta
     return (
         <>
             <div className='flex p-5 h-[15vh] justify-between '>
@@ -130,28 +151,31 @@ const TriviaZebra = () => {
                 <img src={logoZebra} />
             </div>
 
-            <div id='start' className='flex flex-col justify-center text-center  place-items-center mx-auto h-[80vh]'>
-                <img src={gafasBambu} />
-                <p className='text-4xl p-5 uppercase'>¡Participa en la trivia para ganar una gafas de bambú!</p>
-                <button onClick={handleMostrarPregunta} className='bg-sky-700 px-2 py-3 w-72 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-sky-800 transition-colors mt-5 '>Comenzar</button>
+            <div hidden={isPregunta ? true : false}>
+                {msg && <Alerta alerta={alerta} />}
+                <div id='start' className='flex flex-col justify-center text-center  place-items-center mx-auto h-[80vh]' >
+                    <img src={gafasBambu} />
+                    <p className='text-4xl p-5 uppercase'>¡Participa en la trivia para ganar una gafas de bambú!</p>
+                    <button onClick={handleMostrarPregunta} className='bg-sky-700 px-2 py-3 w-72 text-white uppercase font-bold rounded hover:cursor-pointer hover:bg-sky-800 transition-colors mt-5 '>Comenzar</button>
+                </div>
             </div>
-            <div>
 
-                <div hidden={isPregunta ? false : true}>
+            <div hidden={isPregunta ? false : true}  >
+                <div className='flex flex-col justify-center text-center text-2xl place-items-center mx-auto h-[80vh]'>
                     Tiempo:
-                    <div style={{ fontSize: '100px' }}>
+                    <div className='text-6xl'>
                         <span>{seconds}</span>
                     </div>
-                    <p >{listaPreguntas[pregunta].pregunta}</p>
+                    <p className='uppercase p-5 font-bold'>{listaPreguntas[pregunta].pregunta}</p>
                     {listaPreguntas[pregunta].opciones.map((opcion, j) => {
-                        return <div className="flex items-center" key={j}>
+                        return <div className='p-2' key={j}>
                             <input
                                 id={opcion}
                                 type="radio"
                                 value={opcion}
                                 name={listaPreguntas[pregunta].id}
-                                onChange={handleOpcion} className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-                            <label htmlFor={opcion} className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">{opcion}</label>
+                                onChange={handleOpcion} className="w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
+                            <label htmlFor={opcion} className="ml-2 text-2xl font-medium text-gray-900 dark:text-gray-300">{opcion}</label>
                         </div>
                     })}
                 </div>

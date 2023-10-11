@@ -32,6 +32,11 @@ const SidebarAsistente = ({children}) => {
             path:"/como-jugar",
             name:"Cómo jugar",
             icon:<FaInfoCircle/>
+        },
+        {
+            path:"/correos-charla",
+            name:"Correos Charla",
+            icon:<FaInfoCircle/>
         }
     ]
     return (
