@@ -50,6 +50,9 @@ const Logros = () => {
     //Bartender
     const [logroBartender, setLogroBartender] = useState('')
     const [logroBartenderPremium, setLogroBartenderPremium] = useState('')
+    //Escondidas
+    const [logroCharlesDarwin, setLogroCharlesDarwin] = useState('')
+    const [logroGrietas, setLogroGrietas] = useState('')
 
 
     //Mostrar recompensas o actividades dependiendo el boton
@@ -183,6 +186,19 @@ const Logros = () => {
             logroNombre: 'BARTENDER DORADO',
             logro: logroBartenderPremium,
             logroInfo: 'Puedes obtener esta recompensa respondiendo preguntas en el stand de BARTENDER'
+        },
+        //ESCONDIDOS TOURS
+        {
+            logroImg: '../src/images/logros/charlesDarwin.png',
+            logroNombre: 'RECOMPENSA ESCONDIDA TOUR CHARLES DARWIN',
+            logro: logroCharlesDarwin,
+            logroInfo: 'Si escogiste el Tour a la Estación Científica Charles Darwin debes encontrar al Guía con la insignia del Tour para obtener la recompensa.'
+        },
+        {
+            logroImg: '../src/images/logros/grietas.png',
+            logroNombre: 'RECOMPENSA ESCONDIDA TOUR GRIETAS',
+            logro: logroGrietas,
+            logroInfo: 'Si escogiste el Tour a las Grietas debes encontrar al Guía con la insignia del Tour para obtener la recompensa.'
         },
     ]
 
@@ -343,6 +359,18 @@ const Logros = () => {
             setLogroBartenderPremium({ isActive: true })
         } else {
             setLogroBartenderPremium({ isActive: false })
+        }
+        //Si completo el logro CHARLES DARWIN
+        if (logrosList.includes('6528a0972d334a8928fd1205')) {
+            setLogroCharlesDarwin({ isActive: true })
+        } else {
+            setLogroCharlesDarwin({ isActive: false })
+        }
+        //Si completo el logro GRIETAS
+        if (logrosList.includes('6528a0af2d334a8928fd1206')) {
+            setLogroGrietas({ isActive: true })
+        } else {
+            setLogroGrietas({ isActive: false })
         }
         //Set alerta vacio
         setAlerta({

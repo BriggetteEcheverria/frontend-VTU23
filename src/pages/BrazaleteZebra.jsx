@@ -23,11 +23,11 @@ const BrazaleteZebra = () => {
   /*UseEffect para asignar la marca y los url cuando obtenga el parametro marca */
   useEffect(() => {
     if (!flag) {
-      if (tourParam.includes('tintoreras')) {
-        setTour('TINTORERAS')
+      if (tourParam.includes('charlesDarwin')) {
+        setTour('ESTACIÓN CIENTÍFICA CHARLES DARWIN')
       }
-      if (tourParam.includes('tuneles')) {
-        setTour('TUNELES')
+      if (tourParam.includes('grietas')) {
+        setTour('LAS GRIETAS')
       }
       if(hostParam.includes('1')){
         setNombrehost('HOST_TICKETERA_BRAZALETE_1')

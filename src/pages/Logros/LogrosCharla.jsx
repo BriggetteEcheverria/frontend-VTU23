@@ -10,11 +10,11 @@ const LogrosCharla = () => {
             </div>
 
             <div className='h-[80vh]  justify-center text-center flex flex-col lg:px-80 '>
-                <Link to={''} className='bg-[#000000] m-2 py-10 text-white uppercase font-bold rounded hover:cursor-pointer
+                <Link to={'/charlas-3'} className='bg-[#000000] m-2 py-10 text-white uppercase font-bold rounded hover:cursor-pointer
                     hover:bg-[#323232] transition-colors text-center'>
                     Logro CHARLAS: ZEBRA - ZKTECO - UNITECH
                 </Link>
-                <Link to={''} className='bg-[#4ea434] m-2 py-10 text-white uppercase font-bold rounded hover:cursor-pointer
+                <Link to={'/charlas-2'} className='bg-[#4ea434] m-2 py-10 text-white uppercase font-bold rounded hover:cursor-pointer
                     hover:bg-[#4ea434] transition-colors text-center'>
                     Logro CHARLAS: ZKTECO - UNITECH
                 </Link>

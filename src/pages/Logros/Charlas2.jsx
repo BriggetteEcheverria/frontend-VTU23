@@ -11,6 +11,15 @@ const Charlas2 = () => {
     const [flag, setFlag] = useState(false)
     const [alerta, setAlerta] = useState('')
 
+    const handleLogroZkteco = async () => {
+        const idLogro = '651dbfc954eb99d8d33db322'
+        const { data } = await clienteAxios.post('/usuarios/asignarLogro', { idLogro, idUsuario })
+    }
+    const handleLogroUnitech = async () => {
+        const idLogro = '651dc00f54eb99d8d33db323'
+        const { data } = await clienteAxios.post('/usuarios/asignarLogro', { idLogro, idUsuario })
+    }
+
     //Evento cuando envia el formulario
     const handleSubmit = async e => {
         e.preventDefault()
@@ -28,14 +37,9 @@ const Charlas2 = () => {
 
         // Asigna el logro al cliente que se ha ingresado en el input
         try {
-            const idLogro = ['651dbfc954eb99d8d33db322', '651dc00f54eb99d8d33db323']
+            await handleLogroZkteco()
 
-            clienteAxios.all(idLogro.map((idLogro) => clienteAxios.post('/usuarios/asignarLogro', { idLogro, idUsuario }))).then(
-                (data) => console.log(data),
-            );
-
-            //const {data} = await clienteAxios.post('/usuarios/asignarLogro', { idLogro, idUsuario })
-            //setea el campo usuario vacio
+            await handleLogroUnitech()
             setIdUsuario('')
             //muestra alerta
             setAlerta({
@@ -67,7 +71,7 @@ const Charlas2 = () => {
                 </div>
 
                 {msg && <Alerta alerta={alerta} />}
-                <label htmlFor="codigo" className='text-[#02275e] block text-xl font-bold'> LOGRO CHARLA ZKTECO - UNITECH</label>
+                <label htmlFor="codigo" className='text-[#02275e] block text-xl font-bold text-center'> LOGRO CHARLA ZKTECO - UNITECH</label>
                 {/* Formulario para agregar logro a un usuario */}
                 <form onSubmit={handleSubmit}>
                     <input

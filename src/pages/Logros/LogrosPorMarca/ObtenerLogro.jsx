@@ -170,6 +170,22 @@ const ObtenerLogro = () => {
                     })
                 }
             }
+            if (marcaParam.includes('escondido')) {
+                if (tipoParam.includes('1')) {
+                    setLogro({
+                        img: '../src/images/logros/charlesDarwin.png',
+                        idLogro: '6528a0972d334a8928fd1205',
+                        nombre: 'RECOMPENSA ESCONDIDA TOUR CHARLES DARWIN'
+                    })
+                } 
+                if (tipoParam.includes('2')) {
+                    setLogro({
+                        img: '../src/images/logros/grietas.png',
+                        idLogro: '6528a0af2d334a8928fd1206',
+                        nombre: 'RECOMPENSA ESCONDIDA TOUR GRIETAS'
+                    })
+                }
+            }
         }
 
         return () => {
@@ -225,7 +241,7 @@ const ObtenerLogro = () => {
             <div className='flex flex-col h-[80vh] justify-center items-center'>
                 <img src={logro.img} className='lg:w-1/4 p-5 w-2/3' />
                 {msg && <Alerta alerta={alerta} />}
-                <label htmlFor="codigo" className='text-[#02275e] block text-xl font-bold'> LOGRO {logro.nombre}</label>
+                <label htmlFor="codigo" className='text-[#02275e] block text-xl font-bold text-center p-2'> LOGRO {logro.nombre}</label>
                 {/* Formulario para agregar logro a un usuario */}
                 <form onSubmit={handleSubmit}>
                     <input

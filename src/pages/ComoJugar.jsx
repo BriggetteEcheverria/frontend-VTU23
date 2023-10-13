@@ -20,21 +20,20 @@ const ComoJugar = () => {
                     <li className='underline decoration-sky-500 decoration-2 '>Asistir a las conferencias (Consulta el itinerario)</li>
                     <li className='underline decoration-pink-500 decoration-2 '>Acércate a todas las áreas del resort y escucha las exposiciones.</li>
                     <li className='underline decoration-indigo-500 decoration-2 '>Participa y responde las preguntas de los expositores.</li>
-                    <li className='underline decoration-orange-500 decoration-2 '>Encuentra los animales escondidos y responde la trivia.</li>
+                    <li className='underline decoration-orange-500 decoration-2 '>Encuentra las insignias de los tours escondidas.</li>
                 </ol>
                 <br />
                 <p className='text-center'>¡Mientras más puntos acumules la aplicación se actualizará con tu posición en el ranking de huéspedes!</p>
                 <br />
                 <p> <span className='font-black text-[#02275e]'>GRAN PREMIO:</span> VIAJE A GALÁPAGOS PARA DOS PERSONAS.</p>
                 <br />
-                <p className='text-sm font-bold'>Si tienes dudas acércate a cualquier guía de nuestro Resort.</p>
+                <p className='text-sm font-bold'>Si tienes dudas acércate al stand de información de Uniscan cerca a las salas VIP.</p>
                 <br />
                 <p className='text-center text-[#02275e] italic'>¡Disfruta la experiencia Uniscan!</p>
                 <br />
                 <div className='text-xs'>
-                    <p>*El sorteo se realizará entre todos los participantes sin importar su lugar en el ranking.</p>
-                    <p>*Mientras más puntos acumules más oportunidades tendrás de ganar.</p>
-                    <p>*Tendremos premios sorpresa para los primeros lugares del ranking.</p>
+                    <p>*Los sorteos se realizarán entre todos los participantes que hayan cumplido el mínimo de recompensas y que estén presentes al final del showroom.</p>
+                    <p>*Mientras más recompensas acumules más oportunidades tendrás de ganar.</p>
                     <span className='text-red-600'>*Aplica restricciones</span>
                 </div>
 
