@@ -66,7 +66,7 @@ const CorreosCharla = () => {
                 onClose={handleClose}
                 open={open2}
             >
-                <div className="relative  my-40 mx-5 ml-16">
+                <div className="relative  my-10 mx-5 ml-16">
                     {/* <!-- Modal content --> */}
                     <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
                         {/* <!-- Modal header --> */}

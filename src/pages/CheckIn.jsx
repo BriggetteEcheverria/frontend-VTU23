@@ -75,6 +75,7 @@ const CheckIn = () => {
             setId('')
         } catch (error) {
             //mostrar Error
+            console.log(error);
             setId('')
             setAlerta({
                 msg: error.response.data.msg,

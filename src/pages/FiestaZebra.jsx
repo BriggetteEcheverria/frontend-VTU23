@@ -69,12 +69,11 @@ const FiestaZebra = () => {
 
     return (
         <div>
-            <div className='flex px-10 h-[15vh] justify-between '>
+            <div className='flex px-10 h-[15vh] justify-center '>
                 <img src={logo} />
-                <img src={logoZebra} />
             </div>
             <div hidden={isUser ? true : false}>
-                <div className='h-[80vh] justify-center text-center flex flex-col lg:px-80 mx-20'>
+                <div className='h-[60vh] justify-center text-center flex flex-col lg:px-80 mx-20'>
                     <p className='uppercase font-extrabold lg:text-3xl text-xl pb-4'>ESCANÉA TU CÓDIGO Y ELIGE TU TRAGO</p>
                     {msg && <Alerta alerta={alerta} />}
                     <form onSubmit={handleSubmit} >
@@ -89,7 +88,7 @@ const FiestaZebra = () => {
                 </div>
             </div>
             <div hidden={isUser ? false : true}>
-                <div className='flex h-[80vh] flex-col text-center p-3'>
+                <div className='flex h-[60vh] flex-col text-center p-3'>
                     <p className='text-2xl font-medium p-3'>¡Hola <span className='uppercase font-bold'>{nombre}</span> , elije tu trago! </p>
                     <div className='grid grid-rows-2 grid-flow-col m-auto gap-5 '>
                         <div id='cerveza' onClick={onClickCerveza} className='bg-sky-700  p-5 w-60 text-white uppercase font-bold rounded hover:cursor-pointer
@@ -118,6 +117,9 @@ const FiestaZebra = () => {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className='flex px-10 h-[15vh] justify-center '>
+                <img src={logoZebra} />
             </div>
 
         </div>

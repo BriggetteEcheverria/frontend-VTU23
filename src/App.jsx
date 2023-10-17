@@ -27,6 +27,7 @@ import Charlas3 from "./pages/Logros/Charlas3";
 import TriviaZebra from "./pages/TriviaZebra";
 import CorreosCharla from "./pages/CorreosCharla";
 import ActivarCorreosCharla from "./pages/ActivarCorreosCharla";
+import PodioLogros2 from "./pages/Logros/PodioLogros2";
 
 
 //Routeo para redireccionar 
@@ -40,6 +41,7 @@ function App() {
           <Route path='/' element={<BuscarTusLogros />} />
           <Route path='itinerario' element={<Itinerario />} />
           <Route path='podio-recompensas' element={<PodioLogros />} />
+          <Route path='podio-recompensas2' element={<PodioLogros2 />} />
           <Route path='como-jugar' element={<ComoJugar />} />
           <Route path='logros-charla' element={<LogrosCharla />} />
           <Route path='charlas-3' element={<Charlas3 />} />
