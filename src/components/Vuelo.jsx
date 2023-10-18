@@ -10,7 +10,7 @@ const Vuelo = ({ info }) => {
             {info.colorTexto ? <p className=' font-bold  text-orange-400'>{info.destino}</p> : <div className=' font-bold'>{info.destino}</div>}
             {info.desc ? <p className=' font-bold'>{info.desc}</p> : ''}
             </div>
-            <p className={`font-black uppercase ${info.estado==='aterrizo' && 'text-[#e13838]' } ${info.estado=='despego' && 'text-[#43c32a]'} `}>{info.estado}</p>
+            <p className={`font-black uppercase ${info.estado==='aterrizó' && 'text-[#e13838]' } ${info.estado=='despegó' && 'text-[#43c32a]'} `}>{info.estado}</p>
         </div>
     )
 }

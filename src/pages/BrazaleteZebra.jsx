@@ -29,10 +29,10 @@ const BrazaleteZebra = () => {
       if (tourParam.includes('grietas')) {
         setTour('LAS GRIETAS')
       }
-      if(hostParam.includes('1')){
+      if (hostParam.includes('1')) {
         setNombrehost('HOST_TICKETERA_BRAZALETE_1')
       }
-      if(hostParam.includes('2')){
+      if (hostParam.includes('2')) {
         setNombrehost('HOST_TICKETERA_BRAZALETE_2')
       }
     }
@@ -59,7 +59,7 @@ const BrazaleteZebra = () => {
       //Buscar si existe cliente
       const { data } = await clienteAxios(`/usuarios/${id}`)
       const nombre = data.nombre;
-      const { data1 } = await clienteAxios.post('/printers/imprimirBrazaleteTour', {id , tour, nombrehost})
+      const { data1 } = await clienteAxios.post('/printers/imprimirBrazaleteTour', { id, tour, nombrehost })
       setAlerta({
         msg: 'Imprimiendo...',
         error: false
@@ -104,6 +104,7 @@ const BrazaleteZebra = () => {
                 htmlFor='id'
               >ID</label>
               <input
+                autoComplete='off'
                 autoFocus
                 id='id'
                 type='text'

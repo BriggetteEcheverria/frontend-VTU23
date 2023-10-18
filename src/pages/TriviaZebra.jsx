@@ -98,21 +98,21 @@ const TriviaZebra = () => {
     });
 
     const handleImprimir = async () => {
-        await clienteAxios.post('/printers/imprimirPremioGafas')
+        await clienteAxios.post('/printers/imprimirPremioGafas') //HOST RECIBOS 2
     }
 
     //FUNCION PARA INICIAR TRIVIA
     const handleMostrarPregunta = () => {
         unselect()
         setIsPregunta(true)
-        var aleatorio = Math.floor(Math.random() * 10)
+        var aleatorio = Math.floor(Math.random() * 15)
         console.log(juegoActual);
         if (!juegoActual.includes(listaPreguntas[aleatorio].pregunta)) {
             juegoActual.push(listaPreguntas[aleatorio].pregunta)
             setPregunta(aleatorio)
             setIsExpired(false)
             const time = new Date();
-            time.setSeconds(time.getSeconds() + 10);
+            time.setSeconds(time.getSeconds() + 15);
             restart(time)
         } else {
             handleMostrarPregunta()

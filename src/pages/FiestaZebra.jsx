@@ -79,6 +79,7 @@ const FiestaZebra = () => {
                     <form onSubmit={handleSubmit} >
                         <input
                             autoFocus
+                            autoComplete='off'
                             type="text"
                             value={id}
                             onChange={e => setId(e.target.value)}

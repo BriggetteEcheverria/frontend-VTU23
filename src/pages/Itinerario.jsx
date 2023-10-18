@@ -47,7 +47,7 @@ const Itinerario = () => {
                     hora: '8:00 a 9:00',
                     vuelo: "src/images/logos/LogoUnis.png",
                     destino: 'CHECK-IN y desayuno express',
-                    estado: 'A tiempo',
+                    estado: 'aterrizó',
                     color: 'azul'
                 })} />
             <Vuelo info={
@@ -55,7 +55,7 @@ const Itinerario = () => {
                     hora: '9:00 a 9:30',
                     vuelo: "src/images/logos/LogoUnis.png",
                     destino: 'Abordaje y despegue (Bienvenida)',
-                    estado: 'A tiempo',
+                    estado: 'aterrizó',
                     color: 'gris'
                 })} />
             <Vuelo info={
@@ -63,7 +63,7 @@ const Itinerario = () => {
                     hora: '9:30 a 10:30',
                     texto: "INVITADO",
                     destino: 'Conferencia: Ciberseguridad en tiempos de crisis informática',
-                    estado: 'A tiempo',
+                    estado: 'despegó',
                     color: 'azul'
                 })} />
             <Vuelo info={

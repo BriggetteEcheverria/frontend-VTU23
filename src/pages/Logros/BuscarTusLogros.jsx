@@ -13,7 +13,7 @@ import {
 
 const Logros = () => {
 
-    const cantLogros = 19
+    const cantLogros = 20
     const [cedula, setCedula] = useState('')
     const [id, setId] = useState('')
     const [nombre, setNombre] = useState('')
@@ -108,13 +108,13 @@ const Logros = () => {
             logroImg: '../src/images/logros/zkteco/zkteco_logro.png',
             logroNombre: 'ZKTECO STAND',
             logro: logroZkteco,
-            logroInfo: 'Puedes obtener esta recompensa visitando el stand de ZEBRA'
+            logroInfo: 'Puedes obtener esta recompensa visitando el stand de ZKTECO'
         },
         {
             logroImg: '../src/images/logros/zkteco/zkteco_logroDorado.png',
             logroNombre: 'ZKTECO DORADO',
             logro: logroZktecoPremium,
-            logroInfo: 'Puedes obtener esta recompensa respondiendo preguntas en el stand de ZEBRA'
+            logroInfo: 'Puedes obtener esta recompensa respondiendo preguntas en el stand de ZKTECO'
         },
         //UNITECH
         {
@@ -457,6 +457,7 @@ const Logros = () => {
                 {/* Formulario para buscar logros de cliente */}
                 <form onSubmit={handleSubmitBuscar} action="" className='text-[#02275e] rounded-lg  my-auto  m-2 sm:mx-20 flex justify-between'>
                     <input
+                        autoComplete='off'
                         autoFocus
                         id='cedula'
                         type='text'

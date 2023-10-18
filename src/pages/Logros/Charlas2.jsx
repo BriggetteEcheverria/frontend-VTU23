@@ -75,6 +75,7 @@ const Charlas2 = () => {
                 {/* Formulario para agregar logro a un usuario */}
                 <form onSubmit={handleSubmit}>
                     <input
+                        autoComplete='off'
                         autoFocus
                         id='codigo'
                         type='text'

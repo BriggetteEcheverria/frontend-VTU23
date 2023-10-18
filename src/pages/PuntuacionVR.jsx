@@ -123,6 +123,7 @@ const PuntuacionVR = () => {
                     <form onSubmit={handleSubmitBuscar} action="" className='text-[#02275e] rounded-lg  my-auto  m-2 sm:mx-20 shadow-md flex justify-between place-items-center'>
                         <input
                             autoFocus
+                            autoComplete='off'
                             id='cedula'
                             type='text'
                             placeholder='Escanéa el código QR del jugador'

@@ -43,7 +43,7 @@ const Charlas3 = () => {
       await handleLogroZebra()
       await handleLogroZkteco()
       await handleLogroUnitech()
-      
+
       setIdUsuario('')
       //muestra alerta
       setAlerta({
@@ -72,7 +72,7 @@ const Charlas3 = () => {
         <div className='flex'>
           <img src={'../src/images/logros/zebra/zebra_logroConferencia.png'} className='lg:w-1/4 p-5 w-1/2' />
           <img src={'../src/images/logros/zkteco/zkteco_logroConferencia.png'} className='lg:w-1/4 p-5 w-1/2' />
-          
+
         </div>
         <img src={'../src/images/logros/unitech/unitech_logroConferencia.png'} className='lg:w-1/4 p-5 w-1/2' />
 
@@ -81,6 +81,7 @@ const Charlas3 = () => {
         {/* Formulario para agregar logro a un usuario */}
         <form onSubmit={handleSubmit}>
           <input
+            autoComplete='off'
             autoFocus
             id='codigo'
             type='text'

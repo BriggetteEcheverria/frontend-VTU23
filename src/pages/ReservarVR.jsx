@@ -101,7 +101,7 @@ const ReservarVR = () => {
         });
         setHorario(newState);
     }
-    
+
     const handleSubmitReservar = async e => {
         e.preventDefault()
 
@@ -119,12 +119,12 @@ const ReservarVR = () => {
             let idHorario = ''
             actualizarHorario()
             horario.map(horario => {
-                if(horario.horaDesc === fecha){
-                    idHorario=horario.idHorario
+                if (horario.horaDesc === fecha) {
+                    idHorario = horario.idHorario
                 }
             });
             //Query get para obtener datos del contacto
-            const { data } = await clienteAxios.post(`/usuarios/activarVR/${id}`, { fecha , idHorario })
+            const { data } = await clienteAxios.post(`/usuarios/activarVR/${id}`, { fecha, idHorario })
             setAlerta({
                 msg: 'Tu reservación está confirmada revísala en la app',
                 error: false
@@ -162,13 +162,14 @@ const ReservarVR = () => {
                 </div>
 
                 <div className='mt-20 justify-center lg:w-2/3 mx-auto'>
-                    <p className='uppercase text-center font-bold text-2xl  text-[#02275e] sm:text-2xl'>Reserva sala de Juegos</p>
+                    <p className='uppercase text-center font-bold text-2xl  text-[#02275e] sm:text-2xl'>Reserva Clase para Bucear</p>
                     <div className='flex justify-center'>
                         {msg && <Alerta alerta={alerta} />}
                     </div>
                     {/* Formulario buscar asistente */}
                     <form onSubmit={handleSubmitBuscar} action="" className='text-[#02275e] rounded-lg  my-auto  m-2 sm:mx-20 shadow-md flex justify-between place-items-center'>
                         <input
+                            autoComplete='off'
                             autoFocus
                             id='cedula'
                             type='text'

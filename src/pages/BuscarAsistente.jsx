@@ -126,6 +126,7 @@ const BuscarAsistente = () => {
                     {/* Formulario buscar asistente */}
                     <form onSubmit={handleSubmitBuscar} action="" className='text-[#02275e] rounded-lg  my-auto  m-2 sm:mx-20 shadow-md flex justify-between place-items-center'>
                         <input
+                            autoComplete='off'
                             autoFocus
                             id='cedula'
                             type='text'
@@ -193,7 +194,7 @@ const BuscarAsistente = () => {
                                 <option value='' selected>Elige una impresora</option>
                                 <option value='HOST_RECIBOS_1'>HOST 1</option>
                                 <option value='HOST_RECIBOS_2'>HOST 2</option>
-                                
+
                             </select>
 
                             <input

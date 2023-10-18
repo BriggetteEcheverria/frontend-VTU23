@@ -89,6 +89,7 @@ const ImpresionTickets = () => {
                 {msg && <Alerta alerta={alerta} />}
                 <form onSubmit={handleSubmit} >
                     <input
+                        autoComplete='off'
                         autoFocus
                         type="text"
                         value={input}

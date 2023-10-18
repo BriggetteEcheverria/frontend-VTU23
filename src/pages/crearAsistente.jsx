@@ -81,6 +81,7 @@ const crearAsistente = () => {
                                     htmlFor='cedula'
                                 >Cédula:</label>
                                 <input
+                                    autoComplete='off'
                                     autoFocus
                                     id='cedula'
                                     type='number'
@@ -96,6 +97,7 @@ const crearAsistente = () => {
                                     htmlFor='nombre'
                                 >Nombre:</label>
                                 <input
+                                    autoComplete='off'
                                     id='nombre'
                                     type='text'
                                     placeholder='Ingresa su nombre'
@@ -110,6 +112,7 @@ const crearAsistente = () => {
                                     htmlFor='email'
                                 >Correo:</label>
                                 <input
+                                    autoComplete='off'
                                     id='email'
                                     type='email'
                                     placeholder='Ingresa su empresa'
@@ -124,6 +127,7 @@ const crearAsistente = () => {
                                     htmlFor='empresa'
                                 >Empresa:</label>
                                 <input
+                                    autoComplete='off'
                                     id='empresa'
                                     type='text'
                                     placeholder='Ingresa su empresa'
@@ -138,6 +142,7 @@ const crearAsistente = () => {
                                     htmlFor='cargo'
                                 >Cargo:</label>
                                 <input
+                                    autoComplete='off'
                                     id='cargo'
                                     type='text'
                                     placeholder='Ingresa su empresa'
@@ -153,7 +158,7 @@ const crearAsistente = () => {
                                 <option value='' selected>Elige una impresora</option>
                                 <option value='HOST_RECIBOS_1'>HOST 1</option>
                                 <option value='HOST_RECIBOS_2'>HOST 2</option>
-                                
+
                             </select>
 
 

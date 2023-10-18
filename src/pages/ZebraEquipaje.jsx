@@ -66,6 +66,7 @@ const ZebraEquipaje = () => {
                             >ID:</label>
                             <input
                                 autoFocus
+                                autoComplete='off'
                                 id='nombre'
                                 type='text'
                                 placeholder='Ingresa su id'

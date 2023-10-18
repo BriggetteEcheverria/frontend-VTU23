@@ -60,7 +60,7 @@ const ObtenerLogro = () => {
                         idLogro: '64e7db74180191b414600a80',
                         nombre: 'ZKTECO STAND'
                     })
-                } 
+                }
                 if (tipoParam.includes('2')) {
                     setLogro({
                         img: '../src/images/logros/zkteco/zkteco_logroDorado.png',
@@ -83,7 +83,7 @@ const ObtenerLogro = () => {
                         idLogro: '651dc06154eb99d8d33db324',
                         nombre: 'UNITECH STAND'
                     })
-                } 
+                }
                 if (tipoParam.includes('2')) {
                     setLogro({
                         img: '../src/images/logros/unitech/unitech_logroDorado.png',
@@ -106,7 +106,7 @@ const ObtenerLogro = () => {
                         idLogro: '651dc09254eb99d8d33db326',
                         nombre: 'IMIN STAND'
                     })
-                } 
+                }
                 if (tipoParam.includes('2')) {
                     setLogro({
                         img: '../src/images/logros/imin/imin_logroDorado.png',
@@ -122,7 +122,7 @@ const ObtenerLogro = () => {
                         idLogro: '651dc0be54eb99d8d33db328',
                         nombre: 'GAINSCHA STAND'
                     })
-                } 
+                }
                 if (tipoParam.includes('2')) {
                     setLogro({
                         img: '../src/images/logros/gainscha/gainscha_logroDorado.png',
@@ -138,7 +138,7 @@ const ObtenerLogro = () => {
                         idLogro: '651dc11654eb99d8d33db32a',
                         nombre: 'ELO STAND'
                     })
-                } 
+                }
                 if (tipoParam.includes('2')) {
                     setLogro({
                         img: '../src/images/logros/elo/elo_logroDorado.png',
@@ -161,7 +161,7 @@ const ObtenerLogro = () => {
                         idLogro: '651dc15054eb99d8d33db32d',
                         nombre: 'BARTENDER STAND'
                     })
-                } 
+                }
                 if (tipoParam.includes('2')) {
                     setLogro({
                         img: '../src/images/logros/bartender/bartender_logroDorado.png',
@@ -177,7 +177,7 @@ const ObtenerLogro = () => {
                         idLogro: '6528a0972d334a8928fd1205',
                         nombre: 'RECOMPENSA ESCONDIDA TOUR CHARLES DARWIN'
                     })
-                } 
+                }
                 if (tipoParam.includes('2')) {
                     setLogro({
                         img: '../src/images/logros/grietas.png',
@@ -245,6 +245,7 @@ const ObtenerLogro = () => {
                 {/* Formulario para agregar logro a un usuario */}
                 <form onSubmit={handleSubmit}>
                     <input
+                        autoComplete='off'
                         autoFocus
                         id='codigo'
                         type='text'

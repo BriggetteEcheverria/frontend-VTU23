@@ -54,10 +54,10 @@ const CheckIn = () => {
 
         try {
             //Buscar si existe cliente
-            const { data } = await clienteAxios(`/usuarios/${id}`)
-            const nombre = data.nombre;
-            const { data3 } = await clienteAxios.put(`/usuarios/${id}`, {asistencia })
+            // const { data } = await clienteAxios.post(`/usuarios/${id}`)
+            // const nombre = data.nombre;
             setAsistencia(true)
+            const { data3 } = await clienteAxios.put(`/usuarios/${id}`, {asistencia })
             //Mandar imprimir el ticket
             const { data2 } = await clienteAxios.post(`/printers/imprimirBoleto`, { id, nombrehost, asistencia })
             setAlerta({
