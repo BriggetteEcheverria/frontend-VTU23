@@ -2,8 +2,33 @@ import React, { useState } from 'react'
 import logo from '../../images/logoUnis.png'
 import clienteAxios from '../../config/clienteAxios'
 import Alerta from '../../components/Alerta'
+import { useSearchParams } from 'react-router-dom'
+import { useEffect } from 'react'
 
 const ImpresionTickets = () => {
+    /*Usar search params para obtener los paramentros del URL para saber que marca se va a mostrar en el menu  */
+    const [searchParams] = useSearchParams();
+    const [nombrehost, setNombrehost] = useState('')
+    const [flag, setFlag] = useState(false)
+    const [isMas10, setIsMas10] = useState(false)
+    const [isMenos10, setisMenos10] = useState(false)
+
+    const hostParam = searchParams.get('host')
+    /*UseEffect para asignar la marca y los url cuando obtenga el parametro marca */
+    useEffect(() => {
+        if (!flag) {
+            if (hostParam.includes('1')) {
+                setNombrehost('HOST_BOLETERA_1')
+            }
+            if (hostParam.includes('2')) {
+                setNombrehost('HOST_BOLETERA_2')
+            }
+        }
+
+        return () => {
+            setFlag(true)
+        }
+    }, [])
 
     const [input, setInput] = useState('')
     const [nombre, setNombre] = useState('')
@@ -46,7 +71,6 @@ const ImpresionTickets = () => {
     const handleSubmitImpresion = async (e) => {
         e.preventDefault()
         try {
-            const nombrehost = 'HOST_BOLETERA_1'
             const { data2 } = await clienteAxios.post('/printers/imprimirSorteoFinal', { nombrehost, id })
             setIsUser(false)
             setAlerta({
@@ -102,9 +126,17 @@ const ImpresionTickets = () => {
                 <form
                     onSubmit={handleSubmitImpresion}
                     className='text-center'
-                    hidden={isUser ? false : true}
+                    // hidden={isUser ? false : true}
                 >
                     <p className='mt-5 text-xl'>Hola {nombre}! has obtenido {logros} recompensas.</p>
+                    <div hidden={nombrehost==="HOST_BOLETERA_1"?false:true}>
+                        <p className='text-red-800'>Lo siento :c ! No completaste el mínimo de recompensas para participar en el sorteo del viaje a Galápagos. </p>
+                        <p  className='text-green-700 font-bold'>¡Participa en el otro counter!</p>
+                    </div>
+                    <div hidden={nombrehost==="HOST_BOLETERA_2"?false:true} >
+                        <p className='text-green-700'>Tienes las suficientes recompensas para participar en el sorteo del viaje a Galágagos.</p>
+                        <p className='text-red-800 font-bold'>¡Participa en el otro counter!</p>
+                    </div>
                     <input
                         type="submit"
                         value="Imprimir tus tickets para el sorteo"

@@ -11,7 +11,7 @@ import { useSearchParams } from 'react-router-dom'
 const CheckIn = () => {
 
     /*Usar search params para obtener los paramentros del URL para saber que marca se va a mostrar en el menu  */
-    const [searchParams] = useSearchParams();
+    const [searchParams] = useSearchParams(); 
 
     /*Flag para asignar la marca y los url*/
     const [flag, setFlag] = useState(false)
