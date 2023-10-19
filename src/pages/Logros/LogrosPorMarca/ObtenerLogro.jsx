@@ -221,6 +221,13 @@ const ObtenerLogro = () => {
                 msg: 'Logro añadido correctamente',
                 error: false
             })
+            //Borrar alerta despues de 1500ms
+            setTimeout(() => {
+                setAlerta({
+                    msg: '',
+                    error: false
+                })
+            }, 1500);
 
         } catch (error) {
             //setea el campo usuario vacio
@@ -230,6 +237,12 @@ const ObtenerLogro = () => {
                 msg: error.response.data.msg,
                 error: true
             })
+            setTimeout(() => {
+                setAlerta({
+                    msg: '',
+                    error: false
+                })
+            }, 1500);
         }
     }
     const { msg } = alerta
