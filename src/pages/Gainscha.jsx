@@ -30,18 +30,18 @@ const Gainscha = () => {
         <p>Envios Nacionales</p>
         <p>Envios Internacionales</p>
         <div
-          onClick={handleNacional}
-          className='bg-sky-700 py-3 mt-2 h-80 text-white uppercase font-bold rounded hover:cursor-pointer
-                            hover:bg-sky-800 transition-colors disabled:bg-gray-400 w-2/3 flex place-items-center justify-center'>
-          <img src={GA2408T} className=' w-2/3' />
-        </div>
-        <div
         onClick={handleInternacional} 
         className='bg-sky-700 py-3 mt-2 h-80 text-white uppercase font-bold rounded hover:cursor-pointer
                             hover:bg-sky-800 transition-colors disabled:bg-gray-400 w-2/3 flex place-items-center justify-center' >
           <img src={GI2408T} className=' w-2/3' />
         </div>
 
+        <div
+          onClick={handleNacional}
+          className='bg-sky-700 py-3 mt-2 h-80 text-white uppercase font-bold rounded hover:cursor-pointer
+                            hover:bg-sky-800 transition-colors disabled:bg-gray-400 w-2/3 flex place-items-center justify-center'>
+          <img src={GA2408T} className=' w-2/3' />
+        </div>
 
       </div>
     </>
