@@ -19,10 +19,10 @@ const ImpresionTickets = () => {
     /*UseEffect para asignar la marca y los url cuando obtenga el parametro marca */
     useEffect(() => {
         if (!flag) {
-            if (hostParam.includes('2')) {
+            if (hostParam.includes('1')) {
                 setNombrehost('HOST_BOLETERA_1')
             }
-            if (hostParam.includes('1')) {
+            if (hostParam.includes('2')) {
                 setNombrehost('HOST_BOLETERA_2')
             }
         }
