@@ -12,6 +12,8 @@ const ImpresionTickets = () => {
     const [flag, setFlag] = useState(false)
     const [isMas10, setIsMas10] = useState(false)
     const [isMenos10, setisMenos10] = useState(false)
+    const [isErrorHost1, setisErrorHost1] = useState(false)
+    const [isErrorHost2, setIsErrorHost2] = useState(false)
 
     const hostParam = searchParams.get('host')
     /*UseEffect para asignar la marca y los url cuando obtenga el parametro marca */
@@ -62,6 +64,7 @@ const ImpresionTickets = () => {
 
         } catch (error) {
             setInput('')
+            console.log('entra error');
             setAlerta({
                 msg: error.response.data.msg,
                 error: true
@@ -130,6 +133,7 @@ const ImpresionTickets = () => {
                 >
                     <p className='mt-5 text-xl'>Hola {nombre}! has obtenido {logros} recompensas.</p>
                     <div hidden={nombrehost==="HOST_BOLETERA_1"?false:true}>
+
                         <p className='text-red-800'>Lo siento :c ! No completaste el mínimo de recompensas para participar en el sorteo del viaje a Galápagos. </p>
                         <p  className='text-green-700 font-bold'>¡Participa en el otro counter!</p>
                     </div>
