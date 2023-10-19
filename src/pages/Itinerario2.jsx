@@ -4,7 +4,7 @@ import Vuelo from '../components/Vuelo';
 import SidebarAsistente from '../components/SidebarAsistente';
 
 
-const Itinerario = () => {
+const Itinerario2 = () => {
     const locale = 'en';
     const [today, setDate] = React.useState(new Date()); // Save the current date to be able to trigger an update
 
@@ -27,7 +27,7 @@ const Itinerario = () => {
     const time = today.toLocaleTimeString(locale, { hour: 'numeric', hour12: true, minute: 'numeric' });
 
     return (
-        <SidebarAsistente>
+        <>
             <div className='bg-[#1a2092] flex p-5 justify-around place-items-center '>
                 <img src={logo} alt="" className='w-1/2 lg:w-2/6' />
                 <p className='text-white font-bold'>{time}</p>
@@ -126,8 +126,8 @@ const Itinerario = () => {
                     colorTexto: true,
                     desc: 'Código de vestimenta: Color blanco'
                 })} />
-        </SidebarAsistente>
+        </>
     )
 }
 
-export default Itinerario
+export default Itinerario2

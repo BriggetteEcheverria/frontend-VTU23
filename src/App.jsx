@@ -29,6 +29,7 @@ import CorreosCharla from "./pages/CorreosCharla";
 import ActivarCorreosCharla from "./pages/ActivarCorreosCharla";
 import PodioLogros2 from "./pages/Logros/PodioLogros2";
 import Gainscha from "./pages/Gainscha";
+import Itinerario2 from "./pages/Itinerario2";
 
 
 //Routeo para redireccionar 
@@ -56,7 +57,7 @@ function App() {
           <Route path="check-in" element={<CheckIn />} />
           <Route path='crear-asistente' element={<CrearAsistente />} />
           <Route path='buscar-asistente' element={<BuscarAsistente />} />
-          <Route path='itinerario-public' element={<Itinerario />} />
+          <Route path='itinerario-public' element={<Itinerario2 />} />
 
           {/* LOGROS ROUTES */}
           <Route path='menu-logros' element={<MenuLogros />} />
