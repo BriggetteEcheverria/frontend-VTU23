@@ -12,8 +12,8 @@ const ImpresionTickets = () => {
     const [flag, setFlag] = useState(false)
     const [isMas10, setIsMas10] = useState(false)
     const [isMenos10, setisMenos10] = useState(false)
-    const [isErrorHost1, setisErrorHost1] = useState(false)
-    const [isErrorHost2, setIsErrorHost2] = useState(false)
+    const [numLogrosGalapagos, setNumLogrosGalapagos] = useState(false)
+    const [numLogrosNormal, setNumLogrosNormal] = useState(false)
 
     const hostParam = searchParams.get('host')
     /*UseEffect para asignar la marca y los url cuando obtenga el parametro marca */
@@ -50,6 +50,14 @@ const ImpresionTickets = () => {
         }
         try {
             const { data } = await clienteAxios(`/usuarios/${input}`)
+            if (data.logros.length < 11) {
+                setisMenos10(true)
+                setIsMas10(false)
+            } else {
+                setisMenos10(false)
+                setIsMas10(true)
+            }
+
             const nombreUser = data.nombre
             const numLogros = (data.logros).length
             setId(data._id)
@@ -129,17 +137,11 @@ const ImpresionTickets = () => {
                 <form
                     onSubmit={handleSubmitImpresion}
                     className='text-center'
-                    // hidden={isUser ? false : true}
+                hidden={isUser ? false : true}
                 >
                     <p className='mt-5 text-xl'>Hola {nombre}! has obtenido {logros} recompensas.</p>
-                    <div hidden={nombrehost==="HOST_BOLETERA_1"?false:true}>
-
-                        <p className='text-red-800'>Lo siento :c ! No completaste el mínimo de recompensas para participar en el sorteo del viaje a Galápagos. </p>
-                        <p  className='text-green-700 font-bold'>¡Participa en el otro counter!</p>
-                    </div>
-                    <div hidden={nombrehost==="HOST_BOLETERA_2"?false:true} >
-                        <p className='text-green-700'>Tienes las suficientes recompensas para participar en el sorteo del viaje a Galágagos.</p>
-                        <p className='text-red-800 font-bold'>¡Participa en el otro counter!</p>
+                    <div hidden={nombrehost === "HOST_BOLETERA_1"? true : false}>
+                         {msg && <Alerta alerta={alerta} />}
                     </div>
                     <input
                         type="submit"
