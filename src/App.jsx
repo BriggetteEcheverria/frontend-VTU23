@@ -28,6 +28,7 @@ import TriviaZebra from "./pages/TriviaZebra";
 import CorreosCharla from "./pages/CorreosCharla";
 import ActivarCorreosCharla from "./pages/ActivarCorreosCharla";
 import PodioLogros2 from "./pages/Logros/PodioLogros2";
+import Gainscha from "./pages/Gainscha";
 
 
 //Routeo para redireccionar 
@@ -78,6 +79,8 @@ function App() {
            <Route path='puntuacion-vr' element={<PuntuacionVR />} />
            <Route path='tabla-puntuacion-vr' element={<TablaPuntuacionesVR />} />
 
+          {/* GAINSCHA SOLUCION */}
+          <Route path='gainscha' element={<Gainscha />} />
 
         </Route>
       </Routes>
