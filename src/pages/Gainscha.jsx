@@ -12,9 +12,10 @@ const Gainscha = () => {
     const { data } = await axios.post(`http://192.168.0.132:3001/print`, {nombrehost})
     console.log('HandleNacional');
   }
-  const handleInternacional = e => {
+  const handleInternacional = async e => {
     e.preventDefault()
-
+    const nombrehost = 'HOST_GAINSCHA_2'
+    const { data } = await axios.post(`http://192.168.0.132:3001/print`, {nombrehost})
     console.log('HandleINterNacional');
   }
 
